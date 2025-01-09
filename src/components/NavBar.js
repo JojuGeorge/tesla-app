@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import Theme from "../util/Theme";
 
 function NavBar() {
   return (
@@ -49,6 +50,10 @@ function NavBar() {
             <Link to="/ProductList">Products</Link>
           </li>
         </ul>
+      </div>
+
+      <div className="navbar-end">
+        <Theme />
       </div>
     </div>
   );
