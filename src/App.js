@@ -1,20 +1,18 @@
-import logo from "./logo.svg";
 import "./App.css";
 import { Route, Routes } from "react-router-dom";
 import LandingPage from "./pages/LandingPage";
-import ProductList from "./pages/ProductList";
-import CarDetails from "./pages/CarDetails";
+import Shop from "./pages/Shop";
+import VehicleDetails from "./pages/VehicleDetails";
 import NavBar from "./components/NavBar";
 
 function App() {
   return (
     <div className="App">
       <NavBar />
-
       <Routes>
         <Route path="/" index element={<LandingPage />} />
-        <Route path="ProductList" element={<ProductList />} />
-        <Route path="CarDetails" element={<CarDetails />} />
+        <Route path="Shop" element={<Shop />} />
+        <Route path="VehicleDetails" element={<VehicleDetails />} />
       </Routes>
     </div>
   );

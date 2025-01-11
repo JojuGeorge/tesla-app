@@ -1,0 +1,290 @@
+{
+  "vehicles": [
+    {
+      "id": "Tesla_Model_S_2023",
+      "make": "Tesla",
+      "model": "Model S",
+      "year": 2023,
+      "price": "$89,990",
+      "range": "405 miles",
+      "top_speed": "200 mph",
+      "acceleration": "1.99 sec (0-60 mph)",
+      "drive": "AWD",
+      "battery": "100 kWh",
+      "seating": 5,
+      "description": "Tesla Model S is a luxury electric sedan offering exceptional performance and long-range capability.",
+      "available_colors": [
+        "Pearl White Multi-Coat",
+        "Solid Black",
+        "Midnight Silver Metallic",
+        "Deep Blue Metallic",
+        "Red Multi-Coat"
+      ],
+      "key_features": [
+        "Autopilot with Full Self-Driving Capability",
+        "Yoke steering wheel for enhanced driving experience",
+        "17-inch cinematic touchscreen",
+        "Upgraded premium interior with HEPA filtration",
+        "Wireless gaming with up to 10 teraflops of processing power"
+      ],
+      "variants": [
+        {
+          "id": "Tesla_Model_S_2023_Model_S_Long_Range",
+          "name": "Model S Long Range",
+          "range": "405 miles",
+          "price": "$89,990",
+          "acceleration": "3.1 sec (0-60 mph)",
+          "top_speed": "155 mph"
+        },
+        {
+          "id": "Tesla_Model_S_2023_Model_S_Plaid",
+          "name": "Model S Plaid",
+          "range": "396 miles",
+          "price": "$109,990",
+          "acceleration": "1.99 sec (0-60 mph)",
+          "top_speed": "200 mph"
+        }
+      ]
+    },
+    {
+      "id": "Tesla_Model_3_2023",
+      "make": "Tesla",
+      "model": "Model 3",
+      "year": 2023,
+      "price": "$41,990",
+      "range": "358 miles",
+      "top_speed": "145 mph",
+      "acceleration": "3.1 sec (0-60 mph)",
+      "drive": "RWD",
+      "battery": "82 kWh",
+      "seating": 5,
+      "description": "Tesla Model 3 is a compact electric sedan designed for affordability without compromising on performance.",
+      "available_colors": [
+        "Pearl White Multi-Coat",
+        "Solid Black",
+        "Midnight Silver Metallic",
+        "Deep Blue Metallic",
+        "Red Multi-Coat"
+      ],
+      "key_features": [
+        "Full Self-Driving Capability available as an option",
+        "Minimalist interior design with a 15-inch touchscreen",
+        "Over-the-air software updates",
+        "Glass roof for panoramic views",
+        "Efficient energy consumption for maximum range"
+      ],
+      "variants": [
+        {
+          "id": "Tesla_Model_3_2023_Model_3_Standard_Range_Plus",
+          "name": "Model 3 Standard Range Plus",
+          "range": "272 miles",
+          "price": "$41,990",
+          "acceleration": "5.8 sec (0-60 mph)",
+          "top_speed": "140 mph"
+        },
+        {
+          "id": "Tesla_Model_3_2023_Model_3_Long_Range",
+          "name": "Model 3 Long Range",
+          "range": "358 miles",
+          "price": "$49,990",
+          "acceleration": "4.2 sec (0-60 mph)",
+          "top_speed": "145 mph"
+        },
+        {
+          "id": "Tesla_Model_3_2023_Model_3_Performance",
+          "name": "Model 3 Performance",
+          "range": "315 miles",
+          "price": "$58,990",
+          "acceleration": "3.1 sec (0-60 mph)",
+          "top_speed": "162 mph"
+        }
+      ]
+    },
+    {
+      "id": "Tesla_Model_X_2023",
+      "make": "Tesla",
+      "model": "Model X",
+      "year": 2023,
+      "price": "$99,990",
+      "range": "348 miles",
+      "top_speed": "155 mph",
+      "acceleration": "2.5 sec (0-60 mph)",
+      "drive": "AWD",
+      "battery": "100 kWh",
+      "seating": 7,
+      "description": "Tesla Model X is a premium SUV with a spacious interior and Falcon Wing doors for style and utility.",
+      "available_colors": [
+        "Pearl White Multi-Coat",
+        "Solid Black",
+        "Midnight Silver Metallic",
+        "Deep Blue Metallic",
+        "Red Multi-Coat"
+      ],
+      "key_features": [
+        "Falcon Wing doors for easy access",
+        "Seating for up to 7 passengers",
+        "Autopilot with Full Self-Driving Capability",
+        "Tri-zone temperature control",
+        "Premium sound system with immersive audio"
+      ],
+      "variants": [
+        {
+          "id": "Tesla_Model_X_2023_Model_X_Long_Range",
+          "name": "Model X Long Range",
+          "range": "348 miles",
+          "price": "$99,990",
+          "acceleration": "3.8 sec (0-60 mph)",
+          "top_speed": "155 mph"
+        },
+        {
+          "id": "Tesla_Model_X_2023_Model_X_Plaid",
+          "name": "Model X Plaid",
+          "range": "333 miles",
+          "price": "$119,990",
+          "acceleration": "2.5 sec (0-60 mph)",
+          "top_speed": "163 mph"
+        }
+      ]
+    },
+    {
+      "id": "Tesla_Model_Y_2023",
+      "make": "Tesla",
+      "model": "Model Y",
+      "year": 2023,
+      "price": "$53,490",
+      "range": "330 miles",
+      "top_speed": "135 mph",
+      "acceleration": "3.5 sec (0-60 mph)",
+      "drive": "AWD",
+      "battery": "82 kWh",
+      "seating": 7,
+      "description": "Tesla Model Y is a versatile electric SUV offering practicality, space, and Tesla’s iconic performance.",
+      "available_colors": [
+        "Pearl White Multi-Coat",
+        "Solid Black",
+        "Midnight Silver Metallic",
+        "Deep Blue Metallic",
+        "Red Multi-Coat"
+      ],
+      "key_features": [
+        "Seating for up to 7 passengers",
+        "Autopilot with Full Self-Driving Capability",
+        "15-inch touchscreen with intuitive controls",
+        "Panoramic glass roof",
+        "Built-in wireless charging"
+      ],
+      "variants": [
+        {
+          "id": "Tesla_Model_Y_2023_Model_Y_Long_Range",
+          "name": "Model Y Long Range",
+          "range": "330 miles",
+          "price": "$53,490",
+          "acceleration": "4.8 sec (0-60 mph)",
+          "top_speed": "135 mph"
+        },
+        {
+          "id": "Tesla_Model_Y_2023_Model_Y_Performance",
+          "name": "Model Y Performance",
+          "range": "303 miles",
+          "price": "$58,990",
+          "acceleration": "3.5 sec (0-60 mph)",
+          "top_speed": "155 mph"
+        }
+      ]
+    },
+    {
+      "id": "Tesla_Cybertruck_2023",
+      "make": "Tesla",
+      "model": "Cybertruck",
+      "year": 2023,
+      "price": "$49,990",
+      "range": "500+ miles",
+      "top_speed": "130 mph",
+      "acceleration": "2.9 sec (0-60 mph)",
+      "drive": "AWD",
+      "battery": "200 kWh (est.)",
+      "seating": 6,
+      "description": "Tesla Cybertruck is a futuristic electric pickup truck with unmatched durability and performance.",
+      "available_colors": ["Stainless Steel"],
+      "key_features": [
+        "Exoskeleton made of Ultra-Hard 30X Cold-Rolled stainless steel",
+        "Vault-like covered storage with 100 cubic feet of space",
+        "Adaptive air suspension for customizable ground clearance",
+        "Bullet-resistant windows",
+        "6,500-pound towing capacity"
+      ],
+      "variants": [
+        {
+          "id": "Tesla_Cybertruck_2023_Single_Motor_RWD",
+          "name": "Single Motor RWD",
+          "range": "250+ miles",
+          "price": "$39,900",
+          "acceleration": "6.5 sec (0-60 mph)",
+          "top_speed": "110 mph"
+        },
+        {
+          "id": "Tesla_Cybertruck_2023_Dual_Motor_AWD",
+          "name": "Dual Motor AWD",
+          "range": "300+ miles",
+          "price": "$49,990",
+          "acceleration": "4.5 sec (0-60 mph)",
+          "top_speed": "120 mph"
+        },
+        {
+          "id": "Tesla_Cybertruck_2023_Tri_Motor_AWD",
+          "name": "Tri Motor AWD",
+          "range": "500+ miles",
+          "price": "$69,900",
+          "acceleration": "2.9 sec (0-60 mph)",
+          "top_speed": "130 mph"
+        }
+      ]
+    },
+    {
+      "id": "Tesla_Roadster_2023",
+      "make": "Tesla",
+      "model": "Roadster",
+      "year": 2023,
+      "price": "$200,000",
+      "range": "620 miles",
+      "top_speed": "250+ mph",
+      "acceleration": "1.9 sec (0-60 mph)",
+      "drive": "AWD",
+      "battery": "200 kWh",
+      "seating": 4,
+      "description": "Tesla Roadster redefines speed and range, setting a new benchmark for high-performance electric vehicles.",
+      "available_colors": [
+        "Pearl White Multi-Coat",
+        "Solid Black",
+        "Midnight Silver Metallic",
+        "Deep Blue Metallic",
+        "Red Multi-Coat"
+      ],
+      "key_features": [
+        "Glass roof with convertible capabilities",
+        "10,000 Nm of wheel torque",
+        "Four seats in a 2+2 configuration",
+        "Premium lightweight carbon fiber body",
+        "Acceleration unmatched by any production car"
+      ],
+      "variants": [
+        {
+          "id": "Tesla_Roadster_2023_Base_Model",
+          "name": "Base Model",
+          "range": "620 miles",
+          "price": "$200,000",
+          "acceleration": "1.9 sec (0-60 mph)",
+          "top_speed": "250 mph"
+        },
+        {
+          "id": "Tesla_Roadster_2023_Founders_Series",
+          "name": "Founders Series",
+          "range": "620 miles",
+          "price": "$250,000",
+          "acceleration": "1.9 sec (0-60 mph)",
+          "top_speed": "250+ mph"
+        }
+      ]
+    }
+  ]
+}

@@ -1,10 +1,10 @@
 import React from "react";
-import HeroBbImg from "../components/HeroBgImg";
+import HeroBgImg from "../components/HeroBgImg";
 
 function LandingPage() {
   return (
     <div>
-      <HeroBbImg />
+      <HeroBgImg />
     </div>
   );
 }

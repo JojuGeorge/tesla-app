@@ -1,6 +1,6 @@
 import React from "react";
 
-function HeroBbImg() {
+function HeroBgImg() {
   return (
     <div>
       <div
@@ -27,4 +27,4 @@ function HeroBbImg() {
   );
 }
 
-export default HeroBbImg;
+export default HeroBgImg;

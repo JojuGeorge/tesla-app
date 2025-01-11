@@ -4,7 +4,7 @@ import Theme from "../util/Theme";
 
 function NavBar() {
   return (
-    <div className="navbar bg-base-100">
+    <div className="navbar bg-base-100 sticky top-0 z-50">
       <div className="navbar-start">
         <div className="dropdown">
           <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
@@ -32,12 +32,12 @@ function NavBar() {
             </li>
 
             <li>
-              <Link to="/ProductList">Products</Link>
+              <Link to="/Shop">Shop</Link>
             </li>
           </ul>
         </div>
         <Link to="/" className="btn btn-ghost text-xl">
-          daisyUI
+          Tesla
         </Link>
       </div>
       <div className="navbar-center hidden lg:flex">
@@ -47,7 +47,7 @@ function NavBar() {
           </li>
 
           <li>
-            <Link to="/ProductList">Products</Link>
+            <Link to="/Shop">Shop</Link>
           </li>
         </ul>
       </div>
