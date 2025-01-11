@@ -39,3 +39,6 @@ const vehicleDetailsSlice = createSlice({
 });
 
 export default vehicleDetailsSlice.reducer;
+export const selectVehicles = (state) => state.vehicles;
+export const selectLoading = (state) => state.vehicles.loading;
+export const selectError = (state) => state.vehicles.error;
