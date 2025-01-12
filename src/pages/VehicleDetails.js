@@ -69,8 +69,8 @@ function VehicleDetails() {
     );
 
   return (
-    <div>
-      <div className="container mx-auto px-4 py-8 mt-16">
+    <div className="my-1 mx-1">
+      <div className="container mx-auto px-4 py-1 mt-16">
         {/* Hero Section */}
         <div className="grid md:grid-cols-2 gap-8">
           <div className="relative">

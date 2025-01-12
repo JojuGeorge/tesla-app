@@ -14,7 +14,7 @@ function VehicleCard({
   imgUrl,
 }) {
   return (
-    <div className="card bg-base-100 shadow-2xl w-full sm:w-80 md:w-96 lg:w-[700px] mx-auto">
+    <div className="card bg-base-100 shadow-2xl w-full sm:w-80 md:w-96 lg:w-[700px] mx-auto my-2">
       <figure>
         <img
           src={imgUrl.url}
