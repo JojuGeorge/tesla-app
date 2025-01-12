@@ -1,6 +1,8 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 function VehicleCard({
+  id,
   make,
   model,
   desc,
@@ -41,7 +43,9 @@ function VehicleCard({
 
         {/* Actions */}
         <div className="card-actions justify-end mt-4">
-          <button className="btn btn-primary">View Details</button>
+          <Link to={`/vehicleDetails/${id}`} className="btn btn-primary">
+            View Details
+          </Link>
         </div>
       </div>
     </div>

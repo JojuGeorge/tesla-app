@@ -42,12 +42,13 @@ function Shop() {
     );
 
   return (
-    <div>
+    <div className="my-10">
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 gap-y-10 justify-items-center">
         {vehicle &&
           vehicle.map((motoV) => (
             <VehicleCard
               key={motoV.id}
+              id={motoV.id}
               make={motoV.make}
               model={motoV.model}
               desc={motoV.description}

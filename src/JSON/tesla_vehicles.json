@@ -8,7 +8,10 @@
       "price": "$89,990",
       "range": "405 miles",
       "top_speed": "200 mph",
-      "acceleration": "1.99 sec (0-60 mph)",
+      "acceleration": {
+        "value": "1.99s",
+        "unit": "0-60 mph"
+      },
       "drive": "AWD",
       "battery": "100 kWh",
       "seating": 5,
@@ -21,11 +24,26 @@
         "Red Multi-Coat"
       ],
       "key_features": [
-        "Autopilot with Full Self-Driving Capability",
-        "Yoke steering wheel for enhanced driving experience",
-        "17-inch cinematic touchscreen",
-        "Upgraded premium interior with HEPA filtration",
-        "Wireless gaming with up to 10 teraflops of processing power"
+        {
+          "title": "Full Self-Driving Capability",
+          "description": "Autopilot with Full Self-Driving Capability for a semi-autonomous driving experience."
+        },
+        {
+          "title": "Innovative Steering Design",
+          "description": "Yoke steering wheel enhances the driving experience with futuristic controls."
+        },
+        {
+          "title": "Cinematic Display",
+          "description": "17-inch cinematic touchscreen for immersive entertainment and navigation."
+        },
+        {
+          "title": "Premium Interior",
+          "description": "Upgraded premium interior with advanced HEPA filtration for clean air."
+        },
+        {
+          "title": "Gaming on the Go",
+          "description": "Wireless gaming capability with up to 10 teraflops of processing power."
+        }
       ],
       "variants": [
         {
@@ -33,7 +51,10 @@
           "name": "Model S Long Range",
           "range": "405 miles",
           "price": "$89,990",
-          "acceleration": "3.1 sec (0-60 mph)",
+          "acceleration": {
+            "value": "3.1s",
+            "unit": "0-60 mph"
+          },
           "top_speed": "155 mph"
         },
         {
@@ -41,7 +62,10 @@
           "name": "Model S Plaid",
           "range": "396 miles",
           "price": "$109,990",
-          "acceleration": "1.99 sec (0-60 mph)",
+          "acceleration": {
+            "value": "1.99s",
+            "unit": "0-60 mph"
+          },
           "top_speed": "200 mph"
         }
       ]
@@ -54,7 +78,10 @@
       "price": "$41,990",
       "range": "358 miles",
       "top_speed": "145 mph",
-      "acceleration": "3.1 sec (0-60 mph)",
+      "acceleration": {
+        "value": "3.1s",
+        "unit": "0-60 mph"
+      },
       "drive": "RWD",
       "battery": "82 kWh",
       "seating": 5,
@@ -67,11 +94,26 @@
         "Red Multi-Coat"
       ],
       "key_features": [
-        "Full Self-Driving Capability available as an option",
-        "Minimalist interior design with a 15-inch touchscreen",
-        "Over-the-air software updates",
-        "Glass roof for panoramic views",
-        "Efficient energy consumption for maximum range"
+        {
+          "title": "Full Self-Driving Capability",
+          "description": "Available as an option for enhanced autonomous driving."
+        },
+        {
+          "title": "Minimalist Interior",
+          "description": "Interior features a 15-inch touchscreen with a simple and modern design."
+        },
+        {
+          "title": "Over-the-Air Software Updates",
+          "description": "Receive software improvements and new features remotely, over the air."
+        },
+        {
+          "title": "Panoramic Glass Roof",
+          "description": "Enjoy a more open and airy experience with a panoramic glass roof."
+        },
+        {
+          "title": "Energy Efficiency",
+          "description": "Designed for maximum energy efficiency to help extend driving range."
+        }
       ],
       "variants": [
         {
@@ -79,7 +121,10 @@
           "name": "Model 3 Standard Range Plus",
           "range": "272 miles",
           "price": "$41,990",
-          "acceleration": "5.8 sec (0-60 mph)",
+          "acceleration": {
+            "value": "5.8s",
+            "unit": "0-60 mph"
+          },
           "top_speed": "140 mph"
         },
         {
@@ -87,7 +132,10 @@
           "name": "Model 3 Long Range",
           "range": "358 miles",
           "price": "$49,990",
-          "acceleration": "4.2 sec (0-60 mph)",
+          "acceleration": {
+            "value": "4.2s",
+            "unit": "0-60 mph"
+          },
           "top_speed": "145 mph"
         },
         {
@@ -95,7 +143,10 @@
           "name": "Model 3 Performance",
           "range": "315 miles",
           "price": "$58,990",
-          "acceleration": "3.1 sec (0-60 mph)",
+          "acceleration": {
+            "value": "3.1s",
+            "unit": "0-60 mph"
+          },
           "top_speed": "162 mph"
         }
       ]
@@ -108,7 +159,10 @@
       "price": "$99,990",
       "range": "348 miles",
       "top_speed": "155 mph",
-      "acceleration": "2.5 sec (0-60 mph)",
+      "acceleration": {
+        "value": "2.5s",
+        "unit": "0-60 mph"
+      },
       "drive": "AWD",
       "battery": "100 kWh",
       "seating": 7,
@@ -121,11 +175,26 @@
         "Red Multi-Coat"
       ],
       "key_features": [
-        "Falcon Wing doors for easy access",
-        "Seating for up to 7 passengers",
-        "Autopilot with Full Self-Driving Capability",
-        "Tri-zone temperature control",
-        "Premium sound system with immersive audio"
+        {
+          "title": "Falcon Wing Doors",
+          "description": "Easily access the rear seats with Falcon Wing doors that open upward."
+        },
+        {
+          "title": "Seating for 7",
+          "description": "Spacious cabin with seating for up to 7 passengers."
+        },
+        {
+          "title": "Full Self-Driving",
+          "description": "Autopilot with Full Self-Driving capability for an autonomous experience."
+        },
+        {
+          "title": "Tri-Zone Climate Control",
+          "description": "Manage temperatures for three distinct zones in the vehicle."
+        },
+        {
+          "title": "Premium Audio System",
+          "description": "Enjoy an immersive sound experience with a premium sound system."
+        }
       ],
       "variants": [
         {
@@ -133,7 +202,10 @@
           "name": "Model X Long Range",
           "range": "348 miles",
           "price": "$99,990",
-          "acceleration": "3.8 sec (0-60 mph)",
+          "acceleration": {
+            "value": "3.8s",
+            "unit": "0-60 mph"
+          },
           "top_speed": "155 mph"
         },
         {
@@ -141,7 +213,10 @@
           "name": "Model X Plaid",
           "range": "333 miles",
           "price": "$119,990",
-          "acceleration": "2.5 sec (0-60 mph)",
+          "acceleration": {
+            "value": "2.5s",
+            "unit": "0-60 mph"
+          },
           "top_speed": "163 mph"
         }
       ]
@@ -154,7 +229,10 @@
       "price": "$53,490",
       "range": "330 miles",
       "top_speed": "135 mph",
-      "acceleration": "3.5 sec (0-60 mph)",
+      "acceleration": {
+        "value": "3.5s",
+        "unit": "0-60 mph"
+      },
       "drive": "AWD",
       "battery": "82 kWh",
       "seating": 7,
@@ -167,11 +245,26 @@
         "Red Multi-Coat"
       ],
       "key_features": [
-        "Seating for up to 7 passengers",
-        "Autopilot with Full Self-Driving Capability",
-        "15-inch touchscreen with intuitive controls",
-        "Panoramic glass roof",
-        "Built-in wireless charging"
+        {
+          "title": "Seating for 7",
+          "description": "Spacious interior offers seating for up to 7 passengers."
+        },
+        {
+          "title": "Autopilot with Full Self-Driving",
+          "description": "Available self-driving technology that assists with driving and navigation."
+        },
+        {
+          "title": "Intuitive Touchscreen",
+          "description": "15-inch touchscreen for easy access to all vehicle controls and entertainment."
+        },
+        {
+          "title": "Panoramic Glass Roof",
+          "description": "Gives the cabin an airy feel with an expansive view of the sky."
+        },
+        {
+          "title": "Wireless Charging",
+          "description": "Built-in wireless charging for your devices during your journey."
+        }
       ],
       "variants": [
         {
@@ -179,7 +272,10 @@
           "name": "Model Y Long Range",
           "range": "330 miles",
           "price": "$53,490",
-          "acceleration": "4.8 sec (0-60 mph)",
+          "acceleration": {
+            "value": "4.8s",
+            "unit": "0-60 mph"
+          },
           "top_speed": "135 mph"
         },
         {
@@ -187,7 +283,10 @@
           "name": "Model Y Performance",
           "range": "303 miles",
           "price": "$58,990",
-          "acceleration": "3.5 sec (0-60 mph)",
+          "acceleration": {
+            "value": "3.5s",
+            "unit": "0-60 mph"
+          },
           "top_speed": "155 mph"
         }
       ]
@@ -200,18 +299,36 @@
       "price": "$49,990",
       "range": "500+ miles",
       "top_speed": "130 mph",
-      "acceleration": "2.9 sec (0-60 mph)",
+      "acceleration": {
+        "value": "2.9s",
+        "unit": "0-60 mph"
+      },
       "drive": "AWD",
       "battery": "200 kWh (est.)",
       "seating": 6,
       "description": "Tesla Cybertruck is a futuristic electric pickup truck with unmatched durability and performance.",
       "available_colors": ["Stainless Steel"],
       "key_features": [
-        "Exoskeleton made of Ultra-Hard 30X Cold-Rolled stainless steel",
-        "Vault-like covered storage with 100 cubic feet of space",
-        "Adaptive air suspension for customizable ground clearance",
-        "Bullet-resistant windows",
-        "6,500-pound towing capacity"
+        {
+          "title": "Exoskeleton",
+          "description": "Made of Ultra-Hard 30X Cold-Rolled stainless steel for maximum strength."
+        },
+        {
+          "title": "Vault-Like Storage",
+          "description": "Covered storage with 100 cubic feet of space for cargo and equipment."
+        },
+        {
+          "title": "Adaptive Air Suspension",
+          "description": "Customize the truck's ground clearance with adjustable air suspension."
+        },
+        {
+          "title": "Bullet-Resistant Windows",
+          "description": "Windows are designed to withstand significant impact and breakage."
+        },
+        {
+          "title": "Towing Capacity",
+          "description": "Capable of towing up to 6,500 pounds for heavy-duty hauling."
+        }
       ],
       "variants": [
         {
@@ -219,15 +336,21 @@
           "name": "Single Motor RWD",
           "range": "250+ miles",
           "price": "$39,900",
-          "acceleration": "6.5 sec (0-60 mph)",
+          "acceleration": {
+            "value": "6.5s",
+            "unit": "0-60 mph"
+          },
           "top_speed": "110 mph"
         },
         {
           "id": "Tesla_Cybertruck_2023_Dual_Motor_AWD",
           "name": "Dual Motor AWD",
           "range": "300+ miles",
-          "price": "$49,990",
-          "acceleration": "4.5 sec (0-60 mph)",
+          "price": "$49,900",
+          "acceleration": {
+            "value": "4.5s",
+            "unit": "0-60 mph"
+          },
           "top_speed": "120 mph"
         },
         {
@@ -235,7 +358,10 @@
           "name": "Tri Motor AWD",
           "range": "500+ miles",
           "price": "$69,900",
-          "acceleration": "2.9 sec (0-60 mph)",
+          "acceleration": {
+            "value": "2.9s",
+            "unit": "0-60 mph"
+          },
           "top_speed": "130 mph"
         }
       ]
@@ -247,12 +373,15 @@
       "year": 2023,
       "price": "$200,000",
       "range": "620 miles",
-      "top_speed": "250+ mph",
-      "acceleration": "1.9 sec (0-60 mph)",
+      "top_speed": "250 mph",
+      "acceleration": {
+        "value": "1.9s",
+        "unit": "0-60 mph"
+      },
       "drive": "AWD",
       "battery": "200 kWh",
       "seating": 4,
-      "description": "Tesla Roadster redefines speed and range, setting a new benchmark for high-performance electric vehicles.",
+      "description": "The Tesla Roadster redefines speed and luxury, delivering record-breaking acceleration and range.",
       "available_colors": [
         "Pearl White Multi-Coat",
         "Solid Black",
@@ -261,28 +390,49 @@
         "Red Multi-Coat"
       ],
       "key_features": [
-        "Glass roof with convertible capabilities",
-        "10,000 Nm of wheel torque",
-        "Four seats in a 2+2 configuration",
-        "Premium lightweight carbon fiber body",
-        "Acceleration unmatched by any production car"
+        {
+          "title": "Removable Glass Roof",
+          "description": "Enjoy an open-top experience with a removable glass roof."
+        },
+        {
+          "title": "Torque Vectoring",
+          "description": "All-wheel drive with torque vectoring for maximum traction and control."
+        },
+        {
+          "title": "Unmatched Acceleration",
+          "description": "Record-breaking acceleration of under 2 seconds for a thrilling driving experience."
+        },
+        {
+          "title": "Enhanced Aerodynamics",
+          "description": "Aerodynamic design for maximum speed and efficiency."
+        },
+        {
+          "title": "State-of-the-Art Infotainment",
+          "description": "Cutting-edge infotainment system for a modern and connected driving experience."
+        }
       ],
       "variants": [
         {
           "id": "Tesla_Roadster_2023_Base_Model",
-          "name": "Base Model",
+          "name": "Roadster Base Model",
           "range": "620 miles",
           "price": "$200,000",
-          "acceleration": "1.9 sec (0-60 mph)",
+          "acceleration": {
+            "value": "1.9s",
+            "unit": "0-60 mph"
+          },
           "top_speed": "250 mph"
         },
         {
           "id": "Tesla_Roadster_2023_Founders_Series",
-          "name": "Founders Series",
+          "name": "Roadster Founders Series",
           "range": "620 miles",
           "price": "$250,000",
-          "acceleration": "1.9 sec (0-60 mph)",
-          "top_speed": "250+ mph"
+          "acceleration": {
+            "value": "1.9s",
+            "unit": "0-60 mph"
+          },
+          "top_speed": "250 mph"
         }
       ]
     }
