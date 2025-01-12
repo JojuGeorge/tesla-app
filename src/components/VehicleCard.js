@@ -11,12 +11,13 @@ function VehicleCard({
   topSpeed,
   range,
   teslaImage,
+  imgUrl,
 }) {
   return (
-    <div className="card bg-base-100 shadow-xl w-full sm:w-80 md:w-96 lg:w-[700px] mx-auto">
+    <div className="card bg-base-100 shadow-2xl w-full sm:w-80 md:w-96 lg:w-[700px] mx-auto">
       <figure>
         <img
-          src={teslaImage}
+          src={imgUrl.url}
           alt="Vehicle"
           className="w-full h-auto object-cover"
         />

@@ -105,9 +105,7 @@ function VehicleDetails() {
                 >
                   <div className="flex justify-between items-center">
                     <h3 className="font-semibold">{variant.name}</h3>
-                    <p className="font-bold">
-                      ${variant.price.toLocaleString()}
-                    </p>
+                    <p className="font-bold">{variant.price}</p>
                   </div>
                   <div className="grid grid-cols-2 gap-2 mt-2 text-sm text-gray-600">
                     <p>Range: {variant.range} miles</p>

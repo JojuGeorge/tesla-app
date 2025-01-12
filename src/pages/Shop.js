@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import {
   fetchVehicleDetails,
@@ -8,6 +8,8 @@ import {
 } from "../redux/slices/vehicleDetailsSlice";
 import VehicleCard from "../components/VehicleCard";
 import teslaImage from "../assets/tesla_car.png";
+import VehicleShopImgGen from "../util/VehicleShopImgGen";
+import { vehicleModels } from "../util/Config";
 
 function Shop() {
   const { vehicle, loading, error } = useSelector((state) => ({
@@ -16,10 +18,15 @@ function Shop() {
     error: selectError(state),
   }));
   const dispatch = useDispatch();
+  const [urls, setUrls] = useState({});
 
   useEffect(() => {
     dispatch(fetchVehicleDetails());
   }, []);
+
+  const handleGenerateUrl = (generatedUrls) => {
+    setUrls(generatedUrls || {});
+  };
 
   if (loading)
     return (
@@ -57,9 +64,11 @@ function Shop() {
               range={motoV.range}
               teslaImage={teslaImage}
               drive={motoV.drive}
+              imgUrl={urls[vehicleModels[motoV.model]] || {url: teslaImage}}
             />
           ))}
       </div>
+      {<VehicleShopImgGen onGenerateUrl={handleGenerateUrl} />}
     </div>
   );
 }
