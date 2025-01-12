@@ -18,10 +18,10 @@
       "description": "Tesla Model S is a luxury electric sedan offering exceptional performance and long-range capability.",
       "available_colors": [
         "Pearl White Multi-Coat",
-        "Solid Black",
+        "Eclipse Black",
         "Midnight Silver Metallic",
         "Deep Blue Metallic",
-        "Red Multi-Coat"
+        "Sunset Red Multi-Coat"
       ],
       "key_features": [
         {
@@ -88,10 +88,10 @@
       "description": "Tesla Model 3 is a compact electric sedan designed for affordability without compromising on performance.",
       "available_colors": [
         "Pearl White Multi-Coat",
-        "Solid Black",
+        "Eclipse Black",
         "Midnight Silver Metallic",
         "Deep Blue Metallic",
-        "Red Multi-Coat"
+        "Sunset Red Multi-Coat"
       ],
       "key_features": [
         {
@@ -169,10 +169,10 @@
       "description": "Tesla Model X is a premium SUV with a spacious interior and Falcon Wing doors for style and utility.",
       "available_colors": [
         "Pearl White Multi-Coat",
-        "Solid Black",
+        "Eclipse Black",
         "Midnight Silver Metallic",
         "Deep Blue Metallic",
-        "Red Multi-Coat"
+        "Sunset Red Multi-Coat"
       ],
       "key_features": [
         {
@@ -239,10 +239,10 @@
       "description": "Tesla Model Y is a versatile electric SUV offering practicality, space, and Tesla’s iconic performance.",
       "available_colors": [
         "Pearl White Multi-Coat",
-        "Solid Black",
+        "Eclipse Black",
         "Midnight Silver Metallic",
         "Deep Blue Metallic",
-        "Red Multi-Coat"
+        "Sunset Red Multi-Coat"
       ],
       "key_features": [
         {
@@ -308,11 +308,11 @@
       "seating": 4,
       "description": "The Tesla Roadster redefines speed and luxury, delivering record-breaking acceleration and range.",
       "available_colors": [
-        "Pearl White Multi-Coat",
-        "Solid Black",
-        "Midnight Silver Metallic",
-        "Deep Blue Metallic",
-        "Red Multi-Coat"
+        "Thunder Grey Premium",
+        "Obsidian Black Metallic",
+        "Sterling Silver Metallic",
+        "Electric Blue Premium",
+        "Fusion Red"
       ],
       "key_features": [
         {

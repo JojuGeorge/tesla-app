@@ -44,10 +44,23 @@ export const colorCode = {
   rd: {
     "Thunder Grey Premium": "COL3-THGR",
     "Obsidian Black Metallic": "COL2-OBBK",
-    "Sterling Siler Metallic": "COL2-STSL",
+    "Sterling Silver Metallic": "COL2-STSL",
     "Electric Blue Premium": "COL3-ELBL",
     "Fusion Red": "COL1-FURD",
   },
+};
+
+export const colorName = {
+  "Pearl White Multi-Coat": "white",
+  "Midnight Silver Metallic": "silver",
+  "Deep Blue Metallic": "darkBlue",
+  "Eclipse Black": "black",
+  "Sunset Red Multi-Coat": "darkRed",
+  "Thunder Grey Premium": "grey",
+  "Obsidian Black Metallic": "black",
+  "Sterling Silver Metallic": "silver",
+  "Electric Blue Premium": "darkBlue",
+  "Fusion Red": "darkRed",
 };
 
 // Common view values for all vehicles

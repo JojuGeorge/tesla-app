@@ -9,6 +9,7 @@ import {
 } from "../redux/slices/vehicleDetailsSlice";
 import { VehicleImgGen } from "../util/VehicleImgGen";
 import Carousel from "../util/Carousel";
+import { colorName } from "../util/Config";
 
 function VehicleDetails() {
   let params = useParams();
@@ -22,6 +23,7 @@ function VehicleDetails() {
 
   const dispatch = useDispatch();
   const [urls, setUrls] = useState();
+  const [selectedColor, setSelectedColor] = useState("white");
 
   useEffect(() => {
     dispatch(fetchVehicleDetails());
@@ -39,6 +41,12 @@ function VehicleDetails() {
     );
     setUrls(urlList);
   }, [vehicleDetails]);
+
+  const handlePaintSelection = (colorCode, colorName) => {
+    setSelectedColor(colorName);
+    const urlList = VehicleImgGen(vehicleDetails?.model, colorCode);
+    setUrls(urlList);
+  };
 
   if (loading)
     return (
@@ -71,6 +79,23 @@ function VehicleDetails() {
             {/* Color Selector */}
             <div className="absolute bottom-4 left-4 bg-white p-4 rounded-lg shadow-lg">
               <h3 className="text-sm font-semibold mb-2">Paint Color</h3>
+              <div className="flex gap-2">
+                {vehicleDetails?.available_colors?.map((color, index) => (
+                  <button
+                    key={index}
+                    onClick={() => {
+                      handlePaintSelection(color, colorName[color]);
+                    }}
+                    className={`w-8 h-8 rounded-full border-2 ${
+                      selectedColor === colorName[color]
+                        ? "border-blue-500"
+                        : "border-gray-200"
+                    }`}
+                    style={{ backgroundColor: colorName[color] }}
+                    title={`${colorName}`}
+                  />
+                ))}
+              </div>
             </div>
           </div>
 
