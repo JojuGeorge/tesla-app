@@ -10,13 +10,53 @@ export const vehicleModels = {
   Roadster: "rd",
 };
 
-// Common stud values for all vehicles
-export const commonStuds = ["STUD_3QTR", "STUD_REAR", "STUD_SIDE", "STUD_SEAT"];
+export const colorCode = {
+  ms: {
+    "Pearl White Multi-Coat": "COL3-PPSW",
+    "Midnight Silver Metallic": "COL2-PMNG",
+    "Deep Blue Metallic": "COL2-PPSB",
+    "Eclipse Black": "COL1-PBSB",
+    "Sunset Red Multi-Coat": "COL3-PPMR",
+  },
+  mx: {
+    "Pearl White Multi-Coat": "COL3-PPSW",
+    "Midnight Silver Metallic": "COL2-PMNG",
+    "Deep Blue Metallic": "COL2-PPSB",
+    "Eclipse Black": "COL1-PBSB",
+    "Sunset Red Multi-Coat": "COL3-PPMR",
+  },
 
-// Unique stud values for specific models
-export const uniqueStuds = {
-  m3: ["STUD_WHEEL"], // Model 3 unique studs
-  my: ["STUD_WHEEL"], // Model Y unique studs
+  m3: {
+    "Pearl White Multi-Coat": "PPSW",
+    "Midnight Silver Metallic": "PMNG",
+    "Deep Blue Metallic": "PPSB",
+    "Eclipse Black": "PBSB",
+    "Sunset Red Multi-Coat": "PPMR",
+  },
+  my: {
+    "Pearl White Multi-Coat": "PPSW",
+    "Midnight Silver Metallic": "PMNG",
+    "Deep Blue Metallic": "PPSB",
+    "Eclipse Black": "PBSB",
+    "Sunset Red Multi-Coat": "PPMR",
+  },
+
+  rd: {
+    "Thunder Grey Premium": "COL3-THGR",
+    "Obsidian Black Metallic": "COL2-OBBK",
+    "Sterling Siler Metallic": "COL2-STSL",
+    "Electric Blue Premium": "COL3-ELBL",
+    "Fusion Red": "COL1-FURD",
+  },
+};
+
+// Common view values for all vehicles
+export const commonViews = ["STUD_3QTR", "STUD_REAR", "STUD_SIDE", "STUD_SEAT"];
+
+// Unique view values for specific models
+export const uniqueViews = {
+  m3: ["STUD_WHEEL"], // Model 3 unique views
+  my: ["STUD_3QTR", "STUD_SEAT", "STUD_WHEEL"], // Model Y unique views
 };
 
 // Colors associated with each model

@@ -4,7 +4,6 @@ import LandingPage from "./pages/LandingPage";
 import Shop from "./pages/Shop";
 import VehicleDetails from "./pages/VehicleDetails";
 import NavBar from "./components/NavBar";
-import Render from "./util/Render";
 
 function App() {
   return (

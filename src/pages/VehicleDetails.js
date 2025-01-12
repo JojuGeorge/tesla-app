@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
-import teslaImage from "../assets/tesla_car.png";
 import { useSelector, useDispatch } from "react-redux";
 import {
   fetchVehicleDetails,
@@ -8,6 +7,8 @@ import {
   selectLoading,
   selectError,
 } from "../redux/slices/vehicleDetailsSlice";
+import { VehicleImgGen } from "../util/VehicleImgGen";
+import Carousel from "../util/Carousel";
 
 function VehicleDetails() {
   let params = useParams();
@@ -18,7 +19,9 @@ function VehicleDetails() {
     loading: selectLoading(state),
     error: selectError(state),
   }));
+
   const dispatch = useDispatch();
+  const [urls, setUrls] = useState();
 
   useEffect(() => {
     dispatch(fetchVehicleDetails());
@@ -26,9 +29,16 @@ function VehicleDetails() {
 
   useEffect(() => {
     const vehicleInfo = vehicle.find((vh) => vh.id === vehicleId);
-    console.log(vehicleInfo);
     if (vehicleInfo) setVehicleDetails(vehicleInfo);
   }, [vehicle]);
+
+  useEffect(() => {
+    const urlList = VehicleImgGen(
+      vehicleDetails?.model,
+      vehicleDetails?.available_colors?.[0]
+    );
+    setUrls(urlList);
+  }, [vehicleDetails]);
 
   if (loading)
     return (
@@ -56,11 +66,8 @@ function VehicleDetails() {
         {/* Hero Section */}
         <div className="grid md:grid-cols-2 gap-8">
           <div className="relative">
-            <img
-              src={teslaImage}
-              alt={`Tesla `}
-              className="rounded-lg shadow-xl w-full object-cover h-[400px]"
-            />
+            <Carousel urls={urls} />
+
             {/* Color Selector */}
             <div className="absolute bottom-4 left-4 bg-white p-4 rounded-lg shadow-lg">
               <h3 className="text-sm font-semibold mb-2">Paint Color</h3>
