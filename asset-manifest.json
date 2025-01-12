@@ -1,16 +1,16 @@
 {
   "files": {
-    "main.css": "/tesla-app/static/css/main.ef2f8c9f.css",
-    "main.js": "/tesla-app/static/js/main.1e89d92a.js",
+    "main.css": "/tesla-app/static/css/main.5582f2c6.css",
+    "main.js": "/tesla-app/static/js/main.06d5592b.js",
     "static/js/488.77af18ff.chunk.js": "/tesla-app/static/js/488.77af18ff.chunk.js",
     "static/media/tesla_car.png": "/tesla-app/static/media/tesla_car.999021012a4f094edfac.png",
     "index.html": "/tesla-app/index.html",
-    "main.ef2f8c9f.css.map": "/tesla-app/static/css/main.ef2f8c9f.css.map",
-    "main.1e89d92a.js.map": "/tesla-app/static/js/main.1e89d92a.js.map",
+    "main.5582f2c6.css.map": "/tesla-app/static/css/main.5582f2c6.css.map",
+    "main.06d5592b.js.map": "/tesla-app/static/js/main.06d5592b.js.map",
     "488.77af18ff.chunk.js.map": "/tesla-app/static/js/488.77af18ff.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.ef2f8c9f.css",
-    "static/js/main.1e89d92a.js"
+    "static/css/main.5582f2c6.css",
+    "static/js/main.06d5592b.js"
   ]
 }
