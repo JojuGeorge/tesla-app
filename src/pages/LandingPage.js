@@ -35,7 +35,7 @@ function LandingPage() {
   });
 
   return (
-    <div className="snap-y snap-mandatory h-[100dvh] overflow-y-scroll">
+    <div className="snap-y snap-mandatory h-[100dvh] overflow-y-scroll relative">
       {/* Hero Section */}
       <section className="h-[100dvh] w-full snap-start relative">
         <div className="absolute inset-0">
@@ -97,48 +97,48 @@ function LandingPage() {
         </section>
       ))}
 
-      {/* Footer */}
-      <footer className="bg-white py-4 border-t">
-        <div className="container mx-auto flex flex-wrap justify-center items-center gap-x-6 gap-y-2 px-4">
+      {/* Footer - Added sticky positioning and background */}
+      <footer className="sticky bottom-0 bg-black bg-opacity-40 backdrop-blur-sm py-3 z-10">
+        <div className="container  mx-auto flex flex-wrap justify-center items-center gap-x-6 gap-y-2 px-4">
           <a
             href="#"
-            className="text-tesla-gray hover:text-black transition-colors"
+            className="text-gray-300 hover:text-black transition-colors"
           >
             Tesla © 2024
           </a>
           <a
             href="#"
-            className="text-tesla-gray hover:text-black transition-colors"
+            className="text-gray-300 hover:text-black transition-colors"
           >
             Privacy & Legal
           </a>
           <a
             href="#"
-            className="text-tesla-gray hover:text-black transition-colors"
+            className="text-gray-300 hover:text-black transition-colors"
           >
             Vehicle Recalls
           </a>
           <a
             href="#"
-            className="text-tesla-gray hover:text-black transition-colors"
+            className="text-gray-300 hover:text-black transition-colors"
           >
             Contact
           </a>
           <a
             href="#"
-            className="text-tesla-gray hover:text-black transition-colors"
+            className="text-gray-300 hover:text-black transition-colors"
           >
             News
           </a>
           <a
             href="#"
-            className="text-tesla-gray hover:text-black transition-colors"
+            className="text-gray-300 hover:text-black transition-colors"
           >
             Get Updates
           </a>
           <a
             href="#"
-            className="text-tesla-gray hover:text-black transition-colors"
+            className="text-gray-300 hover:text-black transition-colors"
           >
             Locations
           </a>
