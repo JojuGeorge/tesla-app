@@ -21,7 +21,7 @@ function Shop() {
   const dispatch = useDispatch();
   const [urls, setUrls] = useState({});
   const [currentPage, setCurrentPage] = useState(1);
-  const [postsPerPage, setPostsPerPage] = useState(4);
+  const [postsPerPage, setPostsPerPage] = useState(3);
   const [currentPost, setCurrentPost] = useState([]);
 
   const lastPostIndex = currentPage * postsPerPage;
@@ -65,8 +65,8 @@ function Shop() {
     <div className="mt-20 mx-auto max-w-[1440px] px-4 py-5">
       <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6">
         {vehicle &&
-          currentPost?.map((motoV) => (
-            <div className="flex justify-center">
+          currentPost?.map((motoV, index) => (
+            <div className="flex justify-center" key={index}>
               <VehicleCard
                 key={motoV.id}
                 id={motoV.id}

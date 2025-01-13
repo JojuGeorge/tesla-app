@@ -33,8 +33,35 @@ function VehicleCard({
           return;
         }
 
-        // If not cached, use the fallback image
-        setImageError(true);
+        // If not cached, try to fetch and cache the image
+        try {
+          const response = await fetch(imageUrl, {
+            method: 'GET',
+            headers: {
+              'Accept': 'image/*',
+            },
+            mode: 'cors',
+            cache: 'force-cache',
+          });
+
+          if (!response.ok) {
+            throw new Error(`HTTP error! status: ${response.status}`);
+          }
+
+          const blob = await response.blob();
+          const reader = new FileReader();
+          
+          reader.onloadend = () => {
+            const base64data = reader.result;
+            StorageManager.saveImage(`image_${imageUrl}`, base64data);
+            setCachedImage(base64data);
+          };
+          
+          reader.readAsDataURL(blob);
+        } catch (fetchError) {
+          console.error('Error fetching image:', fetchError);
+          setImageError(true);
+        }
 
       } catch (error) {
         console.error('Error loading image:', error);
@@ -51,11 +78,11 @@ function VehicleCard({
 
   return (
     <div className="card bg-base-100 shadow-2xl w-full sm:w-80 md:w-96 lg:w-[700px] mx-auto my-2">
-      <figure>
+      <figure className="h-48 md:h-64">
         <img
-          src={!imageError ? (cachedImage || teslaImage) : teslaImage}
+          src={!imageError ? (cachedImage || imgUrl?.url) : teslaImage}
           alt={`${make} ${model}`}
-          className="w-full h-auto object-cover"
+          className="w-full h-full object-cover"
           onError={handleImageError}
         />
       </figure>
