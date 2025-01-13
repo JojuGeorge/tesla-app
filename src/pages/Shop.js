@@ -10,6 +10,7 @@ import VehicleCard from "../components/VehicleCard";
 import teslaImage from "../assets/tesla_car.png";
 import VehicleShopImgGen from "../util/VehicleShopImgGen";
 import { vehicleModels } from "../util/Config";
+import Pagination from "../components/Pagination";
 
 function Shop() {
   const { vehicle, loading, error } = useSelector((state) => ({
@@ -19,10 +20,22 @@ function Shop() {
   }));
   const dispatch = useDispatch();
   const [urls, setUrls] = useState({});
+  const [currentPage, setCurrentPage] = useState(1);
+  const [postsPerPage, setPostsPerPage] = useState(4);
+  const [currentPost, setCurrentPost] = useState([]);
+
+  const lastPostIndex = currentPage * postsPerPage;
+  const firstPostIndex = lastPostIndex - postsPerPage;
 
   useEffect(() => {
     dispatch(fetchVehicleDetails());
   }, []);
+
+  useEffect(() => {
+    if (vehicle?.length) {
+      setCurrentPost(vehicle.slice(firstPostIndex, lastPostIndex));
+    }
+  }, [vehicle, currentPage, firstPostIndex, lastPostIndex]);
 
   const handleGenerateUrl = (generatedUrls) => {
     setUrls(generatedUrls || {});
@@ -49,10 +62,10 @@ function Shop() {
     );
 
   return (
-    <div className="my-10 mx-3">
+    <div className="mt-20 mx-3">
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 gap-y-10 justify-items-center">
         {vehicle &&
-          vehicle.map((motoV) => (
+          currentPost?.map((motoV) => (
             <VehicleCard
               key={motoV.id}
               id={motoV.id}
@@ -69,6 +82,11 @@ function Shop() {
           ))}
       </div>
       {<VehicleShopImgGen onGenerateUrl={handleGenerateUrl} />}
+      <Pagination
+        totalPosts={vehicle?.length}
+        postsPerPage={postsPerPage}
+        setCurrentPage={setCurrentPage}
+      />
     </div>
   );
 }
