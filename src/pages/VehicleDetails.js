@@ -10,7 +10,7 @@ import {
 import { VehicleImgGen } from "../util/VehicleImgGen";
 import Carousel from "../util/Carousel";
 import { colorName } from "../util/Config";
-import { StorageManager } from '../util/StorageManager';
+import { StorageManager } from "../util/StorageManager";
 
 function VehicleDetails() {
   let params = useParams();
@@ -19,7 +19,7 @@ function VehicleDetails() {
   const [urls, setUrls] = useState([]);
   const [cachedUrls, setCachedUrls] = useState([]);
   const [selectedColor, setSelectedColor] = useState("white");
-  
+
   const { vehicle, loading, error } = useSelector((state) => ({
     vehicle: selectVehicles(state).vehicles,
     loading: selectLoading(state),
@@ -47,12 +47,12 @@ function VehicleDetails() {
     const fetchWithRetry = async (retryCount = 0) => {
       try {
         const response = await fetch(url, {
-          method: 'GET',
+          method: "GET",
           headers: {
-            'Accept': 'image/*',
+            Accept: "image/*",
           },
-          mode: 'cors', // Try with CORS
-          cache: 'force-cache', // Use browser cache if available
+          mode: "cors", // Try with CORS
+          cache: "force-cache", // Use browser cache if available
         });
 
         if (!response.ok) {
@@ -69,17 +69,16 @@ function VehicleDetails() {
           };
           reader.readAsDataURL(blob);
         });
-
       } catch (error) {
         console.error(`Attempt ${retryCount + 1} failed:`, error);
-        
+
         if (retryCount < MAX_RETRIES) {
           // Wait before retrying
-          await new Promise(resolve => setTimeout(resolve, RETRY_DELAY));
+          await new Promise((resolve) => setTimeout(resolve, RETRY_DELAY));
           return fetchWithRetry(retryCount + 1);
         }
-        
-        console.error('Max retries reached, using fallback URL');
+
+        console.error("Max retries reached, using fallback URL");
         return url; // Fallback to original URL
       }
     };
@@ -96,7 +95,7 @@ function VehicleDetails() {
       setUrls(urlList);
 
       // Use cached images if available, otherwise use URLs
-      const cachedImages = urlList.map(url => {
+      const cachedImages = urlList.map((url) => {
         const cached = localStorage.getItem(`image_${url}`);
         return cached || url;
       });
@@ -115,7 +114,7 @@ function VehicleDetails() {
     setUrls(urlList);
 
     // Use cached images if available, otherwise use URLs
-    const cachedImages = urlList.map(url => {
+    const cachedImages = urlList.map((url) => {
       const cached = localStorage.getItem(`image_${url}`);
       return cached || url;
     });
@@ -144,7 +143,7 @@ function VehicleDetails() {
     );
 
   return (
-    <div className="my-1 mx-1">
+    <div className="my-1 mx-1 py-10">
       <div className="container mx-auto px-4 py-1 mt-16">
         {/* Hero Section */}
         <div className="grid md:grid-cols-2 gap-8">

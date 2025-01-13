@@ -1,3 +1,9 @@
+import modelS from "../assets/Model-S.jpg";
+import modelX from "../assets/Model-X.jpg";
+import modelY from "../assets/Model-Y.jpg";
+import model3 from "../assets/Model-3.png";
+import roadster from "../assets/Roadster.jpg";
+
 export const vehicleDetailsApi =
   "https://jojugeorge.github.io/tesla_cars_api/tesla_cars.json";
 
@@ -8,6 +14,14 @@ export const vehicleModels = {
   "Model X": "mx",
   "Model Y": "my",
   Roadster: "rd",
+};
+
+export const defaultImages = {
+  "Model S": modelS,
+  "Model 3": model3,
+  "Model X": modelX,
+  "Model Y": modelY,
+  Roadster: roadster,
 };
 
 export const colorCode = {

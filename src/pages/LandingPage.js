@@ -1,28 +1,35 @@
 import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
-import { selectVehicles, fetchVehicleDetails } from "../redux/slices/vehicleDetailsSlice";
+import {
+  selectVehicles,
+  fetchVehicleDetails,
+} from "../redux/slices/vehicleDetailsSlice";
 import teslaImage from "../assets/tesla_car.png";
+import teslaHomeImg from "../assets/TeslaHomeImg.jpg";
 import "../styles/css/LandingPage.css";
+import { defaultImages } from "../util/Config";
 
 function LandingPage() {
   const dispatch = useDispatch();
-  const vehicles = useSelector(state => selectVehicles(state).vehicles);
+  const vehicles = useSelector((state) => selectVehicles(state).vehicles);
 
   useEffect(() => {
     dispatch(fetchVehicleDetails());
   }, [dispatch]);
 
   // Transform vehicles data to models array
-  const models = vehicles.map(vehicle => {
+  const models = vehicles.map((vehicle) => {
     // Get a random feature title as tagline
-    const randomFeature = vehicle.key_features?.[
-      Math.floor(Math.random() * (vehicle.key_features?.length || 1))
-    ];
+    const randomFeature =
+      vehicle.key_features?.[
+        Math.floor(Math.random() * (vehicle.key_features?.length || 1))
+      ];
 
     return {
+      vId: vehicle.id,
       name: `${vehicle.make} ${vehicle.model}`,
-      image: teslaImage,
+      image: defaultImages[vehicle.model],
       tagline: randomFeature?.title || vehicle.description,
     };
   });
@@ -33,7 +40,7 @@ function LandingPage() {
       <section className="h-[100dvh] w-full snap-start relative">
         <div className="absolute inset-0">
           <img
-            src={teslaImage}
+            src={teslaHomeImg}
             alt="Tesla Hero"
             className="w-full h-full object-cover"
           />
@@ -77,7 +84,7 @@ function LandingPage() {
             </div>
             <div className="flex gap-4">
               <Link
-                to="/shop"
+                to={`/vehicleDetails/${model.vId}`}
                 className="bg-white/80 backdrop-blur-sm text-gray-900 px-12 py-2 rounded hover:bg-white/90 transition"
               >
                 Custom Order
@@ -93,25 +100,46 @@ function LandingPage() {
       {/* Footer */}
       <footer className="bg-white py-4 border-t">
         <div className="container mx-auto flex flex-wrap justify-center items-center gap-x-6 gap-y-2 px-4">
-          <a href="#" className="text-tesla-gray hover:text-black transition-colors">
+          <a
+            href="#"
+            className="text-tesla-gray hover:text-black transition-colors"
+          >
             Tesla © 2024
           </a>
-          <a href="#" className="text-tesla-gray hover:text-black transition-colors">
+          <a
+            href="#"
+            className="text-tesla-gray hover:text-black transition-colors"
+          >
             Privacy & Legal
           </a>
-          <a href="#" className="text-tesla-gray hover:text-black transition-colors">
+          <a
+            href="#"
+            className="text-tesla-gray hover:text-black transition-colors"
+          >
             Vehicle Recalls
           </a>
-          <a href="#" className="text-tesla-gray hover:text-black transition-colors">
+          <a
+            href="#"
+            className="text-tesla-gray hover:text-black transition-colors"
+          >
             Contact
           </a>
-          <a href="#" className="text-tesla-gray hover:text-black transition-colors">
+          <a
+            href="#"
+            className="text-tesla-gray hover:text-black transition-colors"
+          >
             News
           </a>
-          <a href="#" className="text-tesla-gray hover:text-black transition-colors">
+          <a
+            href="#"
+            className="text-tesla-gray hover:text-black transition-colors"
+          >
             Get Updates
           </a>
-          <a href="#" className="text-tesla-gray hover:text-black transition-colors">
+          <a
+            href="#"
+            className="text-tesla-gray hover:text-black transition-colors"
+          >
             Locations
           </a>
         </div>
