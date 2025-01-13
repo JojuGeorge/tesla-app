@@ -62,31 +62,35 @@ function Shop() {
     );
 
   return (
-    <div className="mt-20 mx-3 py-5">
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 gap-y-10 justify-items-center">
+    <div className="mt-20 mx-auto max-w-[1440px] px-4 py-5">
+      <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6">
         {vehicle &&
           currentPost?.map((motoV) => (
-            <VehicleCard
-              key={motoV.id}
-              id={motoV.id}
-              make={motoV.make}
-              model={motoV.model}
-              desc={motoV.description}
-              year={motoV.year}
-              topSpeed={motoV.top_speed}
-              range={motoV.range}
-              teslaImage={teslaImage}
-              drive={motoV.drive}
-              imgUrl={urls[vehicleModels[motoV.model]] || { url: teslaImage }}
-            />
+            <div className="flex justify-center">
+              <VehicleCard
+                key={motoV.id}
+                id={motoV.id}
+                make={motoV.make}
+                model={motoV.model}
+                desc={motoV.description}
+                year={motoV.year}
+                topSpeed={motoV.top_speed}
+                range={motoV.range}
+                teslaImage={teslaImage}
+                drive={motoV.drive}
+                imgUrl={urls[vehicleModels[motoV.model]] || { url: teslaImage }}
+              />
+            </div>
           ))}
       </div>
       {<VehicleShopImgGen onGenerateUrl={handleGenerateUrl} />}
-      <Pagination
-        totalPosts={vehicle?.length}
-        postsPerPage={postsPerPage}
-        setCurrentPage={setCurrentPage}
-      />
+      <div className="mt-8 flex justify-center">
+        <Pagination
+          totalPosts={vehicle?.length}
+          postsPerPage={postsPerPage}
+          setCurrentPage={setCurrentPage}
+        />
+      </div>
     </div>
   );
 }
