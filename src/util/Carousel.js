@@ -1,6 +1,16 @@
-import React from "react";
+import React, { useState } from "react";
+import teslaImage from "../assets/tesla_car.png";
 
 const Carousel = ({ urls }) => {
+  const [imageErrors, setImageErrors] = useState({});
+
+  const handleImageError = (index) => {
+    setImageErrors(prev => ({
+      ...prev,
+      [index]: true
+    }));
+  };
+
   return (
     <>
       <div className="carousel w-full rounded-box h-[420px]">
@@ -12,9 +22,10 @@ const Carousel = ({ urls }) => {
               className="carousel-item relative w-full"
             >
               <img
-                src={url}
-                alt="Tesla Image"
-                className="w-full h-full object-cover" // Ensure the image fits
+                src={!imageErrors[index] && url ? url : teslaImage}
+                alt={`Tesla Image ${index + 1}`}
+                className="w-full h-full object-cover"
+                onError={() => handleImageError(index)}
               />
             </div>
           ))}

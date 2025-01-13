@@ -10,11 +10,16 @@ import {
 import { VehicleImgGen } from "../util/VehicleImgGen";
 import Carousel from "../util/Carousel";
 import { colorName } from "../util/Config";
+import { StorageManager } from '../util/StorageManager';
 
 function VehicleDetails() {
   let params = useParams();
   const [vehicleId, setVehicleId] = useState(params.vehicleId);
   const [vehicleDetails, setVehicleDetails] = useState({});
+  const [urls, setUrls] = useState([]);
+  const [cachedUrls, setCachedUrls] = useState([]);
+  const [selectedColor, setSelectedColor] = useState("white");
+  
   const { vehicle, loading, error } = useSelector((state) => ({
     vehicle: selectVehicles(state).vehicles,
     loading: selectLoading(state),
@@ -22,8 +27,6 @@ function VehicleDetails() {
   }));
 
   const dispatch = useDispatch();
-  const [urls, setUrls] = useState();
-  const [selectedColor, setSelectedColor] = useState("white");
 
   useEffect(() => {
     dispatch(fetchVehicleDetails());
@@ -34,18 +37,90 @@ function VehicleDetails() {
     if (vehicleInfo) setVehicleDetails(vehicleInfo);
   }, [vehicle]);
 
+  const cacheImage = async (url) => {
+    const cached = localStorage.getItem(`image_${url}`);
+    if (cached) return cached;
+
+    const MAX_RETRIES = 3;
+    const RETRY_DELAY = 1000; // 1 second
+
+    const fetchWithRetry = async (retryCount = 0) => {
+      try {
+        const response = await fetch(url, {
+          method: 'GET',
+          headers: {
+            'Accept': 'image/*',
+          },
+          mode: 'cors', // Try with CORS
+          cache: 'force-cache', // Use browser cache if available
+        });
+
+        if (!response.ok) {
+          throw new Error(`HTTP error! status: ${response.status}`);
+        }
+
+        const blob = await response.blob();
+        return new Promise((resolve) => {
+          const reader = new FileReader();
+          reader.onloadend = () => {
+            const base64data = reader.result;
+            const saved = StorageManager.saveImage(`image_${url}`, base64data);
+            resolve(saved ? base64data : url);
+          };
+          reader.readAsDataURL(blob);
+        });
+
+      } catch (error) {
+        console.error(`Attempt ${retryCount + 1} failed:`, error);
+        
+        if (retryCount < MAX_RETRIES) {
+          // Wait before retrying
+          await new Promise(resolve => setTimeout(resolve, RETRY_DELAY));
+          return fetchWithRetry(retryCount + 1);
+        }
+        
+        console.error('Max retries reached, using fallback URL');
+        return url; // Fallback to original URL
+      }
+    };
+
+    return fetchWithRetry();
+  };
+
   useEffect(() => {
-    const urlList = VehicleImgGen(
-      vehicleDetails?.model,
-      vehicleDetails?.available_colors?.[0]
-    );
-    setUrls(urlList);
+    const loadImages = async () => {
+      const urlList = VehicleImgGen(
+        vehicleDetails?.model,
+        vehicleDetails?.available_colors?.[0]
+      );
+      setUrls(urlList);
+
+      // Use cached images if available, otherwise use URLs
+      const cachedImages = urlList.map(url => {
+        const cached = localStorage.getItem(`image_${url}`);
+        return cached || url;
+      });
+
+      setCachedUrls(cachedImages);
+    };
+
+    if (vehicleDetails?.model) {
+      loadImages();
+    }
   }, [vehicleDetails]);
 
-  const handlePaintSelection = (colorCode, colorName) => {
+  const handlePaintSelection = async (colorCode, colorName) => {
     setSelectedColor(colorName);
     const urlList = VehicleImgGen(vehicleDetails?.model, colorCode);
     setUrls(urlList);
+
+    // Use cached images if available, otherwise use URLs
+    const cachedImages = urlList.map(url => {
+      const cached = localStorage.getItem(`image_${url}`);
+      return cached || url;
+    });
+
+    setCachedUrls(cachedImages);
   };
 
   if (loading)
@@ -74,7 +149,7 @@ function VehicleDetails() {
         {/* Hero Section */}
         <div className="grid md:grid-cols-2 gap-8">
           <div className="relative">
-            <Carousel urls={urls} />
+            <Carousel urls={cachedUrls.length > 0 ? cachedUrls : urls} />
 
             {/* Color Selector */}
             <div className="absolute bottom-4 left-4 bg-white p-4 rounded-lg shadow-lg">

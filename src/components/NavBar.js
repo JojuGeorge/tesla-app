@@ -4,7 +4,7 @@ import Theme from "../util/Theme";
 
 function NavBar() {
   return (
-    <div className="navbar bg-base-200 sticky top-0 z-50">
+    <div className="navbar bg-base-200/80 backdrop-blur-sm fixed top-0 z-50">
       <div className="navbar-start">
         <div className="dropdown">
           <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
@@ -25,12 +25,11 @@ function NavBar() {
           </div>
           <ul
             tabIndex={0}
-            className="menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-52 p-2 shadow "
+            className="menu menu-sm dropdown-content bg-base-100/80 backdrop-blur-sm rounded-box z-[1] mt-3 w-52 p-2 shadow"
           >
             <li>
               <Link to="/">Home</Link>
             </li>
-
             <li>
               <Link to="/Shop">Shop</Link>
             </li>
@@ -47,7 +46,6 @@ function NavBar() {
               Home
             </Link>
           </li>
-
           <li>
             <Link to="/Shop" className="text-base">
               Shop
@@ -55,7 +53,6 @@ function NavBar() {
           </li>
         </ul>
       </div>
-
       <div className="navbar-end">
         <Theme />
       </div>

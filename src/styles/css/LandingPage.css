@@ -1,0 +1,52 @@
+/* Container styles */
+.landing-page {
+  height: 100dvh;
+  overflow-y: scroll;
+  scroll-snap-type: y mandatory;
+  scroll-padding-top: 64px; /* Height of navbar */
+}
+
+/* Section styles */
+.landing-section {
+  height: 100dvh;
+  width: 100%;
+  scroll-snap-align: start;
+  position: relative;
+  padding-top: 64px; /* Height of navbar */
+}
+
+/* Content positioning */
+.landing-content {
+  position: absolute;
+  inset: 0;
+  padding-top: calc(64px + 2rem); /* navbar height + extra padding */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding-bottom: 5rem;
+}
+
+/* For browsers that don't support dvh */
+@supports not (height: 100dvh) {
+  .landing-page {
+    height: 100vh;
+    height: -webkit-fill-available;
+  }
+  
+  .landing-section {
+    height: 100vh;
+    height: -webkit-fill-available;
+  }
+}
+
+/* Hide scrollbar for Chrome, Safari and Opera */
+.landing-page::-webkit-scrollbar {
+  display: none;
+}
+
+/* Hide scrollbar for IE, Edge and Firefox */
+.landing-page {
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
+}
+  

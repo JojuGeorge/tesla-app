@@ -1,5 +1,6 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
+import { StorageManager } from '../util/StorageManager';
 
 function VehicleCard({
   id,
@@ -13,13 +14,49 @@ function VehicleCard({
   teslaImage,
   imgUrl,
 }) {
+  const [imageError, setImageError] = useState(false);
+  const [cachedImage, setCachedImage] = useState(null);
+
+  useEffect(() => {
+    const loadImage = async () => {
+      try {
+        const imageUrl = imgUrl?.url;
+        if (!imageUrl) {
+          setImageError(true);
+          return;
+        }
+
+        // Check if image is cached
+        const cachedImageData = localStorage.getItem(`image_${imageUrl}`);
+        if (cachedImageData) {
+          setCachedImage(cachedImageData);
+          return;
+        }
+
+        // If not cached, use the fallback image
+        setImageError(true);
+
+      } catch (error) {
+        console.error('Error loading image:', error);
+        setImageError(true);
+      }
+    };
+
+    loadImage();
+  }, [imgUrl]);
+
+  const handleImageError = () => {
+    setImageError(true);
+  };
+
   return (
     <div className="card bg-base-100 shadow-2xl w-full sm:w-80 md:w-96 lg:w-[700px] mx-auto my-2">
       <figure>
         <img
-          src={imgUrl.url}
-          alt="Vehicle"
+          src={!imageError ? (cachedImage || teslaImage) : teslaImage}
+          alt={`${make} ${model}`}
           className="w-full h-auto object-cover"
+          onError={handleImageError}
         />
       </figure>
       <div className="card-body">
