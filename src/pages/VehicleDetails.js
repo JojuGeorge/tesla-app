@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { useParams } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import {
   fetchVehicleDetails,
@@ -27,6 +27,7 @@ function VehicleDetails() {
   }));
 
   const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   useEffect(() => {
     dispatch(fetchVehicleDetails());
@@ -244,7 +245,10 @@ function VehicleDetails() {
 
             {/* Action Buttons */}
             <div className="flex gap-4">
-              <button className="btn btn-primary flex-1">
+              <button 
+                className="btn btn-primary flex-1"
+                onClick={() => navigate(`/customize/${params.vehicleId}`)}
+              >
                 Build and Price
               </button>
               <button className="btn btn-outline flex-1">
