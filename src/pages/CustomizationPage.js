@@ -96,7 +96,7 @@ function CustomizationPage() {
         {/* Paint Color Selection */}
         <div className="mb-12">
           <h2 className="text-2xl font-semibold mb-4">Exterior Paint</h2>
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-2">
             {vehicle.available_colors?.map((color, index) => (
               <div
                 key={index}
