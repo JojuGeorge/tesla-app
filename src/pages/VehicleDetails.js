@@ -75,43 +75,47 @@ function VehicleDetails() {
     }
   };
 
-  // Update vehicle details when params change
+  // Initial vehicle info loading
   useEffect(() => {
     if (params.vehicleId) {
       const vehicleInfo = vehicle?.find((vh) => vh.id === params.vehicleId);
-
       if (vehicleInfo) {
         setVehicleDetails(vehicleInfo);
-        setSelectedColor("red");
+        setSelectedColor(colorName[vehicleInfo.available_colors[0]]); // Set first available color
       }
     }
-  }, [params.vehicleId, vehicle]); // React to params.vehicleId changes
+  }, [params.vehicleId, vehicle]);
 
+  // Image loading effect
   useEffect(() => {
     const loadImages = async () => {
+      if (!vehicleDetails?.model) return;
+
       const urlList = VehicleImgGen(
-        vehicleDetails?.model,
-        vehicleDetails?.available_colors?.[0]
+        vehicleDetails.model,
+        vehicleDetails.available_colors[0]
       );
       setUrls(urlList);
 
-      // Check for cached images first
+      // Check cache first
       const cachedImages = urlList.map((url) => {
         const cached = localStorage.getItem(`image_${url}`);
-        return cached || url;
+        return cached;
       });
 
-      // Then cache if needed
-      if (!cachedImages.some((url) => url.startsWith("data:"))) {
-        cacheImages(urlList);
+      if (cachedImages.every(img => img)) {
+        // If all images are cached, use them
+        setCachedUrls(cachedImages);
+      } else {
+        // If any image is not cached, fetch and cache all
+        await cacheImages(urlList);
       }
     };
 
-    if (vehicleDetails?.model) {
-      loadImages();
-    }
+    loadImages();
   }, [vehicleDetails]);
 
+  // Paint selection handler
   const handlePaintSelection = async (colorCode, colorName) => {
     setSelectedColor(colorName);
     const urlList = VehicleImgGen(vehicleDetails?.model, colorCode);
@@ -120,11 +124,14 @@ function VehicleDetails() {
     // Check cache first
     const cachedImages = urlList.map((url) => {
       const cached = localStorage.getItem(`image_${url}`);
-      return cached || url;
+      return cached;
     });
 
-    // Cache if needed
-    if (!cachedImages.some((url) => url.startsWith("data:"))) {
+    if (cachedImages.every(img => img)) {
+      // If all images are cached, use them
+      setCachedUrls(cachedImages);
+    } else {
+      // If any image is not cached, fetch and cache all
       await cacheImages(urlList);
     }
   };
