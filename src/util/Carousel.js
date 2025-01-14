@@ -5,9 +5,9 @@ const Carousel = ({ urls, defaultImage }) => {
   const [imageErrors, setImageErrors] = useState({});
 
   const handleImageError = (index) => {
-    setImageErrors(prev => ({
+    setImageErrors((prev) => ({
       ...prev,
-      [index]: true
+      [index]: true,
     }));
   };
 
@@ -20,7 +20,7 @@ const Carousel = ({ urls, defaultImage }) => {
           className="carousel-item relative w-full"
         >
           <img
-            src={!imageErrors[index] && url ? url : defaultImage}
+            src={!imageErrors[index] && url ? url : teslaImage}
             alt={`Tesla Image ${index + 1}`}
             className="w-full h-full object-cover"
             onError={() => handleImageError(index)}
