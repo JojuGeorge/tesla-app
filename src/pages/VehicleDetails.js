@@ -14,11 +14,11 @@ import { StorageManager } from "../util/StorageManager";
 
 function VehicleDetails() {
   let params = useParams();
-  const [vehicleId, setVehicleId] = useState(params.vehicleId);
   const [vehicleDetails, setVehicleDetails] = useState({});
   const [urls, setUrls] = useState([]);
   const [cachedUrls, setCachedUrls] = useState([]);
   const [selectedColor, setSelectedColor] = useState("white");
+  const [isImageLoading, setIsImageLoading] = useState(false);
 
   const { vehicle, loading, error } = useSelector((state) => ({
     vehicle: selectVehicles(state).vehicles,
@@ -30,61 +30,64 @@ function VehicleDetails() {
 
   useEffect(() => {
     dispatch(fetchVehicleDetails());
-  }, []);
+  }, [dispatch]);
 
-  useEffect(() => {
-    const vehicleInfo = vehicle.find((vh) => vh.id === vehicleId);
-    if (vehicleInfo) setVehicleDetails(vehicleInfo);
-  }, [vehicle]);
+  const cacheImages = async (urlList) => {
+    setIsImageLoading(true);
+    try {
+      const cachedImages = await Promise.all(
+        urlList.map(async (url) => {
+          const cachedImage = localStorage.getItem(`image_${url}`);
+          if (cachedImage) return cachedImage;
 
-  const cacheImage = async (url) => {
-    const cached = localStorage.getItem(`image_${url}`);
-    if (cached) return cached;
+          try {
+            const response = await fetch(url, {
+              method: "GET",
+              headers: {
+                Accept: "image/*",
+              },
+              mode: "cors",
+              cache: "force-cache",
+            });
 
-    const MAX_RETRIES = 3;
-    const RETRY_DELAY = 1000; // 1 second
+            if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
 
-    const fetchWithRetry = async (retryCount = 0) => {
-      try {
-        const response = await fetch(url, {
-          method: "GET",
-          headers: {
-            Accept: "image/*",
-          },
-          mode: "cors", // Try with CORS
-          cache: "force-cache", // Use browser cache if available
-        });
-
-        if (!response.ok) {
-          throw new Error(`HTTP error! status: ${response.status}`);
-        }
-
-        const blob = await response.blob();
-        return new Promise((resolve) => {
-          const reader = new FileReader();
-          reader.onloadend = () => {
-            const base64data = reader.result;
-            const saved = StorageManager.saveImage(`image_${url}`, base64data);
-            resolve(saved ? base64data : url);
-          };
-          reader.readAsDataURL(blob);
-        });
-      } catch (error) {
-        console.error(`Attempt ${retryCount + 1} failed:`, error);
-
-        if (retryCount < MAX_RETRIES) {
-          // Wait before retrying
-          await new Promise((resolve) => setTimeout(resolve, RETRY_DELAY));
-          return fetchWithRetry(retryCount + 1);
-        }
-
-        console.error("Max retries reached, using fallback URL");
-        return url; // Fallback to original URL
-      }
-    };
-
-    return fetchWithRetry();
+            const blob = await response.blob();
+            return new Promise((resolve) => {
+              const reader = new FileReader();
+              reader.onloadend = () => {
+                const base64data = reader.result;
+                StorageManager.saveImage(`image_${url}`, base64data);
+                resolve(base64data);
+              };
+              reader.readAsDataURL(blob);
+            });
+          } catch (error) {
+            console.error('Error caching image:', error);
+            return url;
+          }
+        })
+      );
+      setCachedUrls(cachedImages);
+    } finally {
+      setIsImageLoading(false);
+    }
   };
+
+  // Update vehicle details when params change
+  useEffect(() => {
+    if (params.vehicleId) {
+      const vehicleInfo = vehicle?.find((vh) => vh.id === params.vehicleId);
+
+      if (vehicleInfo) {
+        setVehicleDetails(vehicleInfo);
+        setSelectedColor("white");
+        const urlList = VehicleImgGen(vehicleInfo.model, "white");
+        setUrls(urlList);
+        cacheImages(urlList);
+      }
+    }
+  }, [params.vehicleId, vehicle]); // React to params.vehicleId changes
 
   useEffect(() => {
     const loadImages = async () => {
@@ -94,40 +97,51 @@ function VehicleDetails() {
       );
       setUrls(urlList);
 
-      // Use cached images if available, otherwise use URLs
-      const cachedImages = urlList.map((url) => {
+      // Check for cached images first
+      const cachedImages = urlList.map(url => {
         const cached = localStorage.getItem(`image_${url}`);
         return cached || url;
       });
-
       setCachedUrls(cachedImages);
+      
+      // Then cache if needed
+      if (!cachedImages.some(url => url.startsWith('data:'))) {
+        cacheImages(urlList);
+      }
     };
 
     if (vehicleDetails?.model) {
       loadImages();
     }
-  }, [vehicleDetails]);
+
+        
+  }, [params.vehicleId, vehicle, vehicleDetails]);
 
   const handlePaintSelection = async (colorCode, colorName) => {
     setSelectedColor(colorName);
     const urlList = VehicleImgGen(vehicleDetails?.model, colorCode);
     setUrls(urlList);
-
-    // Use cached images if available, otherwise use URLs
-    const cachedImages = urlList.map((url) => {
+    
+    // Check cache first
+    const cachedImages = urlList.map(url => {
       const cached = localStorage.getItem(`image_${url}`);
       return cached || url;
     });
-
     setCachedUrls(cachedImages);
+    
+    // Cache if needed
+    if (!cachedImages.some(url => url.startsWith('data:'))) {
+      await cacheImages(urlList);
+    }
   };
 
-  if (loading)
+  if (loading) {
     return (
       <div className="flex justify-center items-center min-h-screen">
         <span className="loading loading-spinner loading-lg"></span>
       </div>
     );
+  }
 
   if (error)
     return (
