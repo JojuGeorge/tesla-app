@@ -77,7 +77,7 @@ function VehicleCard({
   };
 
   return (
-    <div className="card bg-base-100 shadow-2xl w-full sm:w-80 md:w-96 lg:w-[700px] mx-auto my-2">
+    <div  className="card bg-base-100 shadow-2xl w-full sm:w-80 md:w-96 lg:w-[700px] mx-auto my-2">
       <figure className="h-48 md:h-64">
         <img
           src={!imageError ? (cachedImage || imgUrl?.url) : teslaImage}
@@ -87,22 +87,22 @@ function VehicleCard({
         />
       </figure>
       <div className="card-body">
-        <h2 className="card-title text-lg">{`${make} ${model}`}</h2>
-        <p className="text-sm text-gray-600">{desc}</p>
+        <h2 className="card-title text-lg text-base-content">{`${make} ${model}`}</h2>
+        <p className="text-sm text-base-content/80">{desc}</p>
 
         {/* Vehicle details */}
-        <div className="grid grid-cols-2 gap-x-4 gap-y-4 mt-4 text-sm text-gray-700">
+        <div className="grid grid-cols-2 gap-x-4 gap-y-4 mt-4 text-sm text-base-content/90">
           <p>
-            <strong>Year:</strong> {year}
+            <strong className="text-base-content">Year:</strong> {year}
           </p>
           <p>
-            <strong>Top Speed:</strong> {topSpeed}
+            <strong className="text-base-content">Top Speed:</strong> {topSpeed}
           </p>
           <p>
-            <strong>Range:</strong> {range}
+            <strong className="text-base-content">Range:</strong> {range}
           </p>
           <p>
-            <strong>Drive:</strong> {drive}
+            <strong className="text-base-content">Drive:</strong> {drive}
           </p>
         </div>
 

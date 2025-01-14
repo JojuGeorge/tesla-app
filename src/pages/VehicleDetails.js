@@ -50,7 +50,8 @@ function VehicleDetails() {
               cache: "force-cache",
             });
 
-            if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
+            if (!response.ok)
+              throw new Error(`HTTP error! status: ${response.status}`);
 
             const blob = await response.blob();
             return new Promise((resolve) => {
@@ -63,7 +64,7 @@ function VehicleDetails() {
               reader.readAsDataURL(blob);
             });
           } catch (error) {
-            console.error('Error caching image:', error);
+            console.error("Error caching image:", error);
             return url;
           }
         })
@@ -81,10 +82,7 @@ function VehicleDetails() {
 
       if (vehicleInfo) {
         setVehicleDetails(vehicleInfo);
-        setSelectedColor("white");
-        const urlList = VehicleImgGen(vehicleInfo.model, "white");
-        setUrls(urlList);
-        cacheImages(urlList);
+        setSelectedColor("red");
       }
     }
   }, [params.vehicleId, vehicle]); // React to params.vehicleId changes
@@ -98,14 +96,13 @@ function VehicleDetails() {
       setUrls(urlList);
 
       // Check for cached images first
-      const cachedImages = urlList.map(url => {
+      const cachedImages = urlList.map((url) => {
         const cached = localStorage.getItem(`image_${url}`);
         return cached || url;
       });
-      setCachedUrls(cachedImages);
-      
+
       // Then cache if needed
-      if (!cachedImages.some(url => url.startsWith('data:'))) {
+      if (!cachedImages.some((url) => url.startsWith("data:"))) {
         cacheImages(urlList);
       }
     };
@@ -113,24 +110,21 @@ function VehicleDetails() {
     if (vehicleDetails?.model) {
       loadImages();
     }
-
-        
-  }, [params.vehicleId, vehicle, vehicleDetails]);
+  }, [vehicleDetails]);
 
   const handlePaintSelection = async (colorCode, colorName) => {
     setSelectedColor(colorName);
     const urlList = VehicleImgGen(vehicleDetails?.model, colorCode);
     setUrls(urlList);
-    
+
     // Check cache first
-    const cachedImages = urlList.map(url => {
+    const cachedImages = urlList.map((url) => {
       const cached = localStorage.getItem(`image_${url}`);
       return cached || url;
     });
-    setCachedUrls(cachedImages);
-    
+
     // Cache if needed
-    if (!cachedImages.some(url => url.startsWith('data:'))) {
+    if (!cachedImages.some((url) => url.startsWith("data:"))) {
       await cacheImages(urlList);
     }
   };
@@ -162,6 +156,11 @@ function VehicleDetails() {
         {/* Hero Section */}
         <div className="grid md:grid-cols-2 gap-8">
           <div className="relative">
+            {isImageLoading && (
+              <div className="absolute inset-0 bg-base-100/50 backdrop-blur-sm flex justify-center items-center z-10">
+                <span className="loading loading-spinner loading-lg"></span>
+              </div>
+            )}
             <Carousel urls={cachedUrls.length > 0 ? cachedUrls : urls} />
 
             {/* Color Selector */}
@@ -180,7 +179,8 @@ function VehicleDetails() {
                         : "border-gray-200"
                     }`}
                     style={{ backgroundColor: colorName[color] }}
-                    title={`${colorName}`}
+                    title={colorName[color]}
+                    disabled={isImageLoading}
                   />
                 ))}
               </div>
