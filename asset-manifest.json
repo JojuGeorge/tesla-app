@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/tesla-app/static/css/main.cedb066d.css",
-    "main.js": "/tesla-app/static/js/main.60f9ad3f.js",
+    "main.css": "/tesla-app/static/css/main.e746818f.css",
+    "main.js": "/tesla-app/static/js/main.bf9dceda.js",
     "static/js/488.77af18ff.chunk.js": "/tesla-app/static/js/488.77af18ff.chunk.js",
     "static/media/TeslaHomeImg.jpg": "/tesla-app/static/media/TeslaHomeImg.00392fea034671dc2686.jpg",
     "static/media/Roadster.jpg": "/tesla-app/static/media/Roadster.f19b84f1c662dcb6b9dd.jpg",
@@ -11,12 +11,12 @@
     "static/media/tesla_car.png": "/tesla-app/static/media/tesla_car.999021012a4f094edfac.png",
     "static/media/Model-Y.jpg": "/tesla-app/static/media/Model-Y.ca852792732030df3859.jpg",
     "index.html": "/tesla-app/index.html",
-    "main.cedb066d.css.map": "/tesla-app/static/css/main.cedb066d.css.map",
-    "main.60f9ad3f.js.map": "/tesla-app/static/js/main.60f9ad3f.js.map",
+    "main.e746818f.css.map": "/tesla-app/static/css/main.e746818f.css.map",
+    "main.bf9dceda.js.map": "/tesla-app/static/js/main.bf9dceda.js.map",
     "488.77af18ff.chunk.js.map": "/tesla-app/static/js/488.77af18ff.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.cedb066d.css",
-    "static/js/main.60f9ad3f.js"
+    "static/css/main.e746818f.css",
+    "static/js/main.bf9dceda.js"
   ]
 }
