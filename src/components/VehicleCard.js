@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
-import { StorageManager } from '../util/StorageManager';
+import { useNavigate } from "react-router-dom";
+import { StorageManager } from "../util/StorageManager";
 
 function VehicleCard({
   id,
@@ -16,6 +16,7 @@ function VehicleCard({
 }) {
   const [imageError, setImageError] = useState(false);
   const [cachedImage, setCachedImage] = useState(null);
+  const navigate = useNavigate();
 
   useEffect(() => {
     const loadImage = async () => {
@@ -36,12 +37,12 @@ function VehicleCard({
         // If not cached, try to fetch and cache the image
         try {
           const response = await fetch(imageUrl, {
-            method: 'GET',
+            method: "GET",
             headers: {
-              'Accept': 'image/*',
+              Accept: "image/*",
             },
-            mode: 'cors',
-            cache: 'force-cache',
+            mode: "cors",
+            cache: "force-cache",
           });
 
           if (!response.ok) {
@@ -50,21 +51,20 @@ function VehicleCard({
 
           const blob = await response.blob();
           const reader = new FileReader();
-          
+
           reader.onloadend = () => {
             const base64data = reader.result;
             StorageManager.saveImage(`image_${imageUrl}`, base64data);
             setCachedImage(base64data);
           };
-          
+
           reader.readAsDataURL(blob);
         } catch (fetchError) {
-          console.error('Error fetching image:', fetchError);
+          console.error("Error fetching image:", fetchError);
           setImageError(true);
         }
-
       } catch (error) {
-        console.error('Error loading image:', error);
+        console.error("Error loading image:", error);
         setImageError(true);
       }
     };
@@ -77,10 +77,10 @@ function VehicleCard({
   };
 
   return (
-    <div  className="card bg-base-100 shadow-2xl w-full sm:w-80 md:w-96 lg:w-[700px] mx-auto my-2">
+    <div className="card bg-base-100 shadow-2xl w-full sm:w-80 md:w-96 lg:w-[700px] mx-auto my-2">
       <figure className="h-48 md:h-64">
         <img
-          src={!imageError ? (cachedImage || imgUrl?.url) : teslaImage}
+          src={!imageError ? cachedImage || imgUrl?.url : teslaImage}
           alt={`${make} ${model}`}
           className="w-full h-full object-cover"
           onError={handleImageError}
@@ -108,9 +108,12 @@ function VehicleCard({
 
         {/* Actions */}
         <div className="card-actions justify-end mt-4">
-          <Link to={`/vehicleDetails/${id}`} className="btn btn-primary">
+          <button
+            onClick={() => navigate(`/vehicleDetails/${id}`)}
+            className="btn btn-primary"
+          >
             View Details
-          </Link>
+          </button>
         </div>
       </div>
     </div>

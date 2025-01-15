@@ -7,6 +7,8 @@ import roadster from "../assets/Roadster.jpg";
 export const vehicleDetailsApi =
   "https://jojugeorge.github.io/tesla_cars_api/tesla_cars.json";
 
+export const POST_PER_PAGE = 3;
+
 // Vehicle model mapping to codes
 export const vehicleModels = {
   "Model S": "ms",

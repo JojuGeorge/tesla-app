@@ -9,7 +9,7 @@ import {
 import VehicleCard from "../components/VehicleCard";
 import teslaImage from "../assets/tesla_car.png";
 import VehicleShopImgGen from "../util/VehicleShopImgGen";
-import { vehicleModels } from "../util/Config";
+import { POST_PER_PAGE, vehicleModels } from "../util/Config";
 import Pagination from "../components/Pagination";
 
 function Shop() {
@@ -21,7 +21,7 @@ function Shop() {
   const dispatch = useDispatch();
   const [urls, setUrls] = useState({});
   const [currentPage, setCurrentPage] = useState(1);
-  const [postsPerPage, setPostsPerPage] = useState(3);
+  const [postsPerPage, setPostsPerPage] = useState(POST_PER_PAGE);
   const [currentPost, setCurrentPost] = useState([]);
 
   const lastPostIndex = currentPage * postsPerPage;
