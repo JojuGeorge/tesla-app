@@ -33,8 +33,12 @@ _Customize your Tesla with different variants and colors_
 ![Order Summary Modal](ScreenShots/orderSummary.png)
 _Order Summary Modal_
 
+### Dark Mode
+
 ![Dark Mode](ScreenShots/detailsDarkMode.png)
 _Application supports both light and dark themes_
+
+/n
 
 <p>
 <img src='ScreenShots/customizeDarkMode.png' height="300" width="400">
