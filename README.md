@@ -63,14 +63,20 @@ https://jojugeorge.github.io/tesla_cars_api/tesla_cars.json
 
 ## Local Development
 
-Clone the repository
+Clone the repository<br/>
 git clone https://github.com/YourUsername/tesla-app.git
-Install dependencies
-npm install
-Start development server
+<br/>
+<br/>
+Install dependencies<br/>
+npm install<br/>
+<br/>
+Start development server<br/>
 npm start
-Build for production
-npm run build
+<br/>
+<br/>
+Build for production<br/>
+npm run build<br/>
+<br/>
 
 ## Technologies Used
 
