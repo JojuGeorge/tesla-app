@@ -10,36 +10,36 @@ https://jojugeorge.github.io/tesla-app/#/
 
 ### Landing Page
 
-![Landing Page](screenshots/landing.png)
+![Landing Page](ScreenShots/landing.png)
 _The landing page featuring Tesla's signature full-screen design with snap scrolling_
 
 ### Vehicle Shop
 
-![Shop Page](screenshots/shop.png)
+![Shop Page](ScreenShots/shop.png)
 _Browse through Tesla's vehicle lineup with detailed specifications_
 
 ### Vehicle Details
 
-![Vehicle Details](screenshots/details.png)
+![Vehicle Details](ScreenShots/details.png)
 _Detailed view of each vehicle with color selection and key features_
 
 ### Customization
 
-![Customization Page](screenshots/customize.png)
+![Customization Page](ScreenShots/customize.png)
 _Customize your Tesla with different variants and colors_
 
 ### Order Summary
 
-![Order Summary Modal](screenshots/orderSummary.png)
+![Order Summary Modal](ScreenShots/orderSummary.png)
 _Order Summary Modal_
 
-![Dark Mode](screenshots/detailsDarkMode.png)
+![Dark Mode](ScreenShots/detailsDarkMode.png)
 _Application supports both light and dark themes_
 
 <p>
-<img src='screenshots/customizeDarkMode.png' height="300" width="400">
-<img src='screenshots/orderSummaryDarkMode.png' h height="300" width="400">
-<img src='screenshots/shop2.png' h height="300" width="400">
+<img src='ScreenShots/customizeDarkMode.png' height="300" width="400">
+<img src='ScreenShots/orderSummaryDarkMode.png' h height="300" width="400">
+<img src='ScreenShots/shop2.png' h height="300" width="400">
 </p>
 
 ## Features
