@@ -38,7 +38,7 @@ _Order Summary Modal_
 ![Dark Mode](ScreenShots/detailsDarkMode.png)
 _Application supports both light and dark themes_
 
-/n
+<br/>
 
 <p>
 <img src='ScreenShots/customizeDarkMode.png' height="300" width="400">
