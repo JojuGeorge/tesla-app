@@ -1,9 +1,12 @@
-import React, { useState, useEffect } from 'react';
-import { useParams, useNavigate } from 'react-router-dom';
-import { useSelector, useDispatch } from 'react-redux';
-import { selectVehicles, fetchVehicleDetails } from '../redux/slices/vehicleDetailsSlice';
-import { colorName } from '../util/Config';
-import PaymentModal from '../components/PaymentModal';
+import React, { useState, useEffect } from "react";
+import { useParams, useNavigate } from "react-router-dom";
+import { useSelector, useDispatch } from "react-redux";
+import {
+  selectVehicles,
+  fetchVehicleDetails,
+} from "../redux/slices/vehicleDetailsSlice";
+import { colorName } from "../util/Config";
+import PaymentModal from "../components/PaymentModal";
 
 function CustomizationPage() {
   const navigate = useNavigate();
@@ -36,6 +39,7 @@ function CustomizationPage() {
     setPrice(variant.price);
   };
 
+  // if both variant and color are selected, open the order summary modal
   const handlePayment = () => {
     if (selectedVariant && selectedColor) {
       setIsModalOpen(true);
@@ -50,17 +54,17 @@ function CustomizationPage() {
             onClick={() => navigate(`/VehicleDetails/${vehicleId}`)}
             className="btn btn-ghost gap-2 mb-6 self-start"
           >
-            <svg 
-              xmlns="http://www.w3.org/2000/svg" 
-              className="h-5 w-5" 
-              viewBox="0 0 24 24" 
-              fill="none" 
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              className="h-5 w-5"
+              viewBox="0 0 24 24"
+              fill="none"
               stroke="currentColor"
-              strokeWidth="2" 
-              strokeLinecap="round" 
+              strokeWidth="2"
+              strokeLinecap="round"
               strokeLinejoin="round"
             >
-              <path d="M19 12H5M12 19l-7-7 7-7"/>
+              <path d="M19 12H5M12 19l-7-7 7-7" />
             </svg>
             Back to Details
           </button>
@@ -69,7 +73,7 @@ function CustomizationPage() {
             Customize Your {vehicle.make} {vehicle.model}
           </h1>
         </div>
-        
+
         {/* Variants Selection */}
         <div className="mb-12">
           <h2 className="text-2xl font-semibold mb-4">Select Variant</h2>
@@ -78,9 +82,11 @@ function CustomizationPage() {
               <div
                 key={variant.name}
                 className={`p-6 border rounded-lg cursor-pointer transition-all duration-200
-                  ${selectedVariant === variant.name 
-                    ? 'border-primary border-2 bg-base-200' 
-                    : 'hover:border-primary border-base-content/20'}`}
+                  ${
+                    selectedVariant === variant.name
+                      ? "border-primary border-2 bg-base-200"
+                      : "hover:border-primary border-base-content/20"
+                  }`}
                 onClick={() => handleVariantSelect(variant)}
               >
                 <div className="flex justify-between items-center">
@@ -98,7 +104,7 @@ function CustomizationPage() {
                         Selected
                       </span>
                     ) : (
-                      <button 
+                      <button
                         className="btn btn-primary mt-2"
                         onClick={(e) => {
                           e.stopPropagation();
@@ -123,11 +129,11 @@ function CustomizationPage() {
               <div
                 key={index}
                 className={`p-4 border rounded-lg hover:border-primary cursor-pointer transition-colors bg-gray-200 
-                  ${selectedColor === color ? 'border-primary border-2' : ''}`}
+                  ${selectedColor === color ? "border-primary border-2" : ""}`}
                 onClick={() => setSelectedColor(color)}
               >
-                <div 
-                  className="w-full h-32 rounded-lg mb-2" 
+                <div
+                  className="w-full h-32 rounded-lg mb-2"
                   style={{ backgroundColor: colorName[color] }}
                 ></div>
                 <p className="text-center font-semibold">{color}</p>
@@ -141,8 +147,12 @@ function CustomizationPage() {
           <div className="container mx-auto flex justify-between items-center">
             <div className="flex items-center gap-4">
               <div>
-                <p className="text-sm md:text-base lg:text-lg font-semibold">Total Price</p>
-                <p className="text-lg md:text-xl lg:text-2xl font-bold">{price}</p>
+                <p className="text-sm md:text-base lg:text-lg font-semibold">
+                  Total Price
+                </p>
+                <p className="text-lg md:text-xl lg:text-2xl font-bold">
+                  {price}
+                </p>
               </div>
               {selectedColor && (
                 <div className="flex items-center gap-2">
@@ -151,11 +161,14 @@ function CustomizationPage() {
                     style={{ backgroundColor: colorName[selectedColor] }}
                     title={selectedColor}
                   />
-                  <span className="text-xs md:text-sm font-medium">{selectedColor}</span>
+                  <span className="text-xs md:text-sm font-medium">
+                    {selectedColor}
+                  </span>
                 </div>
               )}
             </div>
-            <button 
+            {/* Button is enable only after selecting both vehicle variant and color and on clicking it opens up a summary modal */}
+            <button
               className="btn btn-primary text-sm md:text-base"
               onClick={handlePayment}
               disabled={!selectedVariant || !selectedColor}
@@ -166,7 +179,7 @@ function CustomizationPage() {
         </div>
       </div>
 
-      {/* Add Modal */}
+      {/* Order summary Modal */}
       <PaymentModal
         isOpen={isModalOpen}
         onClose={() => setIsModalOpen(false)}
@@ -179,4 +192,4 @@ function CustomizationPage() {
   );
 }
 
-export default CustomizationPage; 
+export default CustomizationPage;

@@ -1,6 +1,7 @@
 import { vehicleModels, commonViews, uniqueViews, modelColors } from "./Config";
 
 // Render image data
+// Get the vehicle code for the model, view_value and colors for each model
 const RenderData = () => {
   const renderImage = Object.keys(vehicleModels).reduce((acc, model) => {
     // Get the vehicle code for the model

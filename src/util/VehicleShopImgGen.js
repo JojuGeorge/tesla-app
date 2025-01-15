@@ -8,6 +8,7 @@ function VehicleShopImgGen({ onGenerateUrl }) {
   const vehicle = useSelector((state) => selectVehicles(state).vehicles);
   const previousUrls = useRef({});
 
+  // Generate URL parameters
   const parameterGen = useCallback((modelCode, view, color) => {
     const modelMap = { my: "3a1d1c6cdccb462405eee5db90fcbd39" };
     const adjustedModelCode = modelMap[modelCode] || modelCode;
@@ -19,6 +20,7 @@ function VehicleShopImgGen({ onGenerateUrl }) {
       if (!vehicleData?.length) return {};
 
       return vehicleData.reduce((acc, vh) => {
+        // Get model code for gettig color code
         const modelCode = vehicleModels[vh.model];
         if (!modelCode || !modelColors[modelCode]) return acc;
 

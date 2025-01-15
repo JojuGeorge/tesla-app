@@ -10,11 +10,12 @@ function SearchBar() {
   const searchRef = useRef(null);
   const navigate = useNavigate();
   const location = useLocation();
-  
+
   const { vehicles } = useSelector((state) => ({
     vehicles: selectVehicles(state).vehicles,
   }));
 
+  // Close suggestions dropdown on outside click
   useEffect(() => {
     const handleClickOutside = (event) => {
       if (searchRef.current && !searchRef.current.contains(event.target)) {
@@ -26,6 +27,7 @@ function SearchBar() {
     return () => document.removeEventListener("mousedown", handleClickOutside);
   }, []);
 
+  // On entering search term, filter vehicles
   const handleSearch = (value) => {
     setSearchTerm(value);
     if (value.trim() === "") {
@@ -48,12 +50,13 @@ function SearchBar() {
     setShowSuggestions(true);
   };
 
+  // On suggestion click, navigate to vehicle details page
   const handleSuggestionClick = (vehicleId) => {
     setSearchTerm("");
     setShowSuggestions(false);
-    
-    if (location.pathname.includes('/vehicleDetails')) {
-      navigate('/', { replace: true });
+
+    if (location.pathname.includes("/vehicleDetails")) {
+      navigate("/", { replace: true });
       setTimeout(() => {
         navigate(`/vehicleDetails/${vehicleId}`);
       }, 0);
@@ -71,7 +74,7 @@ function SearchBar() {
         value={searchTerm}
         onChange={(e) => handleSearch(e.target.value)}
       />
-      
+
       {/* Suggestions dropdown */}
       {showSuggestions && filteredVehicles.length > 0 && (
         <div className="absolute top-full mt-1 w-full bg-base-100 rounded-lg shadow-lg z-50 max-h-60 overflow-y-auto">
@@ -95,4 +98,4 @@ function SearchBar() {
   );
 }
 
-export default SearchBar; 
+export default SearchBar;

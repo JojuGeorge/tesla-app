@@ -5,7 +5,6 @@ import {
   selectVehicles,
   fetchVehicleDetails,
 } from "../redux/slices/vehicleDetailsSlice";
-import teslaImage from "../assets/tesla_car.png";
 import teslaHomeImg from "../assets/TeslaHomeImg.jpg";
 import "../styles/css/LandingPage.css";
 import { defaultImages } from "../util/Config";

@@ -33,6 +33,7 @@ function VehicleDetails() {
     dispatch(fetchVehicleDetails());
   }, [dispatch]);
 
+  // Cache images
   const cacheImages = async (urlList) => {
     setIsImageLoading(true);
     try {
@@ -92,6 +93,7 @@ function VehicleDetails() {
     const loadImages = async () => {
       if (!vehicleDetails?.model) return;
 
+      // Generate image URLs based on different views
       const urlList = VehicleImgGen(
         vehicleDetails.model,
         vehicleDetails.available_colors[0]
@@ -119,6 +121,7 @@ function VehicleDetails() {
   // Paint selection handler
   const handlePaintSelection = async (colorCode, colorName) => {
     setSelectedColor(colorName);
+    // Get url based on color for different views
     const urlList = VehicleImgGen(vehicleDetails?.model, colorCode);
     setUrls(urlList);
 
@@ -137,6 +140,7 @@ function VehicleDetails() {
     }
   };
 
+  // Loading spinner
   if (loading) {
     return (
       <div className="flex justify-center items-center min-h-screen">
@@ -145,6 +149,7 @@ function VehicleDetails() {
     );
   }
 
+  // Error handling
   if (error)
     return (
       <div className="text-center p-8">
@@ -243,7 +248,7 @@ function VehicleDetails() {
               ))}
             </div>
 
-            {/* Action Buttons */}
+            {/* Go to customization page on button click */}
             <div className="flex gap-4">
               <button
                 className="btn btn-primary flex-1"

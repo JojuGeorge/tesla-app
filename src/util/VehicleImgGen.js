@@ -10,10 +10,12 @@ const parameterGen = (modelCode, view, color) => {
   return `model=${modelCode}&options=${color}&view=${view}&size=1691`;
 };
 
+// Generate image URL for the vehicle with different views and color
 export const VehicleImgGen = (model, color) => {
   const modelCode = vehicleModels[model];
   const colorCde = colorCode[modelCode]?.[color];
   const renderData = RenderData();
+  // Get the multiple views for the model
   const views = renderData[modelCode]?.["view_value"];
   const site = modelCode === "rd" ? "www" : "static-assets";
 

@@ -19,11 +19,12 @@ function Shop() {
     error: selectError(state),
   }));
   const dispatch = useDispatch();
-  const [urls, setUrls] = useState({});
-  const [currentPage, setCurrentPage] = useState(1);
-  const [postsPerPage, setPostsPerPage] = useState(POST_PER_PAGE);
-  const [currentPost, setCurrentPost] = useState([]);
+  const [urls, setUrls] = useState({}); // Image URL
+  const [currentPage, setCurrentPage] = useState(1); // Pagination - current page
+  const [postsPerPage, setPostsPerPage] = useState(POST_PER_PAGE); // Pagination - posts per page
+  const [currentPost, setCurrentPost] = useState([]); // Contains vechile data for current page based on postsPerPage
 
+  // Calculating the last and first post index for current page
   const lastPostIndex = currentPage * postsPerPage;
   const firstPostIndex = lastPostIndex - postsPerPage;
 
@@ -32,15 +33,18 @@ function Shop() {
   }, []);
 
   useEffect(() => {
+    // Get list of vehicles for current page
     if (vehicle?.length) {
       setCurrentPost(vehicle.slice(firstPostIndex, lastPostIndex));
     }
   }, [vehicle, currentPage, firstPostIndex, lastPostIndex]);
 
+  // Generate Image URL from VehicleShopImgGen
   const handleGenerateUrl = (generatedUrls) => {
     setUrls(generatedUrls || {});
   };
 
+  //On Loading show spinner
   if (loading)
     return (
       <div className="flex justify-center items-center min-h-screen">
@@ -48,9 +52,10 @@ function Shop() {
       </div>
     );
 
+  // On Error show error message and try again button
   if (error)
     return (
-      <div className="text-center p-8">
+      <div className="flex flex-col justify-center items-center min-h-screen">
         <p className="text-red-500">{error}</p>
         <button
           onClick={() => dispatch(fetchVehicleDetails())}
@@ -83,7 +88,9 @@ function Shop() {
             </div>
           ))}
       </div>
+      {/* Generate Image URL */}
       {<VehicleShopImgGen onGenerateUrl={handleGenerateUrl} />}
+      {/* Pagination */}
       <div className="mt-8 flex justify-center">
         <Pagination
           totalPosts={vehicle?.length}
