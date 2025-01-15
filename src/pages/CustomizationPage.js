@@ -1,11 +1,12 @@
 import React, { useState, useEffect } from 'react';
-import { useParams } from 'react-router-dom';
+import { useParams, useNavigate } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import { selectVehicles, fetchVehicleDetails } from '../redux/slices/vehicleDetailsSlice';
 import { colorName } from '../util/Config';
 import PaymentModal from '../components/PaymentModal';
 
 function CustomizationPage() {
+  const navigate = useNavigate();
   const { vehicleId } = useParams();
   const dispatch = useDispatch();
   const { vehicles } = useSelector((state) => ({
@@ -44,9 +45,30 @@ function CustomizationPage() {
   return (
     <>
       <div className="container mx-auto px-4 py-20">
-        <h1 className="text-3xl font-bold mb-8">
-          Customize Your {vehicle.make} {vehicle.model}
-        </h1>
+        <div className="flex flex-col">
+          <button
+            onClick={() => navigate(`/VehicleDetails/${vehicleId}`)}
+            className="btn btn-ghost gap-2 mb-6 self-start"
+          >
+            <svg 
+              xmlns="http://www.w3.org/2000/svg" 
+              className="h-5 w-5" 
+              viewBox="0 0 24 24" 
+              fill="none" 
+              stroke="currentColor"
+              strokeWidth="2" 
+              strokeLinecap="round" 
+              strokeLinejoin="round"
+            >
+              <path d="M19 12H5M12 19l-7-7 7-7"/>
+            </svg>
+            Back to Details
+          </button>
+
+          <h1 className="text-3xl font-bold mb-8">
+            Customize Your {vehicle.make} {vehicle.model}
+          </h1>
+        </div>
         
         {/* Variants Selection */}
         <div className="mb-12">

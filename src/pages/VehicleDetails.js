@@ -104,7 +104,7 @@ function VehicleDetails() {
         return cached;
       });
 
-      if (cachedImages.every(img => img)) {
+      if (cachedImages.every((img) => img)) {
         // If all images are cached, use them
         setCachedUrls(cachedImages);
       } else {
@@ -128,7 +128,7 @@ function VehicleDetails() {
       return cached;
     });
 
-    if (cachedImages.every(img => img)) {
+    if (cachedImages.every((img) => img)) {
       // If all images are cached, use them
       setCachedUrls(cachedImages);
     } else {
@@ -187,7 +187,7 @@ function VehicleDetails() {
                         : "border-gray-200"
                     }`}
                     style={{ backgroundColor: colorName[color] }}
-                    title={colorName[color]}
+                    title={color}
                     disabled={isImageLoading}
                   />
                 ))}
@@ -245,7 +245,7 @@ function VehicleDetails() {
 
             {/* Action Buttons */}
             <div className="flex gap-4">
-              <button 
+              <button
                 className="btn btn-primary flex-1"
                 onClick={() => navigate(`/customize/${params.vehicleId}`)}
               >
