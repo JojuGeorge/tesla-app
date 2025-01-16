@@ -53,8 +53,10 @@ _Application supports both light and dark themes_
 - Dark/Light theme support
 - Search functionality
 - Image caching for better performance
-- Smooth animations and transitions
 - Vehicle details with specifications
+- Pagination
+- Vehicle customization page
+- Order summary page
 
 ## API Reference
 
